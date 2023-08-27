@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.controllers.WelcomeFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controllers.WelcomeFormController">
+   <children>
+      <ImageView fitHeight="1024.0" fitWidth="1440.0" layoutX="436.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../assets/loading_screen.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="loadingLbl" layoutX="185.0" layoutY="831.0" text="Initializing Application...." AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="836.0">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="fullLoadingBar" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="15.0" layoutX="179.0" layoutY="792.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFFFFF; -fx-arc-height: 20; -fx-arc-width: 20;" width="1141.0" AnchorPane.leftAnchor="149.0" AnchorPane.topAnchor="888.0" />
+      <Rectangle fx:id="loadingBar" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="15.0" layoutX="153.0" layoutY="568.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #85B7FF; -fx-arc-height: 20; -fx-arc-width: 20;" width="14.0" AnchorPane.leftAnchor="149.0" AnchorPane.topAnchor="888.0" />
+   </children>
 </AnchorPane>
