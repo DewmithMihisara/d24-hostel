@@ -18,6 +18,6 @@ public class Navigation {
         }
     }
     private static void initUi(String location) throws IOException {
-        Navigation.root.getChildren().add(FXMLLoader.load(Objects.requireNonNull(Navigation.class.getResource("/view/" + location))));
+        Navigation.root.getChildren().add(FXMLLoader.load(Objects.requireNonNull(Navigation.class.getResource("/views/" + location))));
     }
 }
