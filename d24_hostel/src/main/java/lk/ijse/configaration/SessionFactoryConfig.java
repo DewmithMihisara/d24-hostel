@@ -3,6 +3,7 @@ package lk.ijse.configaration;
 import lk.ijse.entity.Reservation;
 import lk.ijse.entity.Room;
 import lk.ijse.entity.Student;
+import lk.ijse.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -29,7 +30,8 @@ public class SessionFactoryConfig {
         configuration
                 .addAnnotatedClass(Student.class)
                 .addAnnotatedClass(Room.class)
-                .addAnnotatedClass(Reservation.class);
+                .addAnnotatedClass(Reservation.class)
+                .addAnnotatedClass(User.class);
         sessionFactory=configuration.setProperties(properties).buildSessionFactory();
     }
 
