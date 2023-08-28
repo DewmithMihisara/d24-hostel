@@ -8,9 +8,6 @@ import javafx.stage.Stage;
 import lk.ijse.configaration.SessionFactoryConfig;
 
 public class Main extends Application {
-    public static void main(String[] args) {
-        SessionFactoryConfig.getInstance().getSession();
-    }
     @Override
     public void start(Stage stage) throws Exception {
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/views/logInForm.fxml")));
