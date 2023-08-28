@@ -1,7 +1,11 @@
 package lk.ijse.configaration;
 
+import lk.ijse.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 public class SessionFactoryConfig {
@@ -9,9 +13,12 @@ public class SessionFactoryConfig {
     private final SessionFactory sessionFactory;
 
     private SessionFactoryConfig() {
-        sessionFactory = new Configuration()
-                .configure()
-                .buildSessionFactory();
+        StandardServiceRegistryBuilder standardServiceRegistryBuilder = new StandardServiceRegistryBuilder();
+        standardServiceRegistryBuilder.loadProperties("hibernate.properties");
+        MetadataSources metadataSources = new MetadataSources(standardServiceRegistryBuilder.build());
+        metadataSources.addAnnotatedClass(Student.class);
+        Metadata metadata = metadataSources.getMetadataBuilder().build();
+        sessionFactory = metadata.getSessionFactoryBuilder().build();
     }
 
     public static SessionFactoryConfig getInstance() {

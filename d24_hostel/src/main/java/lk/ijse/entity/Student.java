@@ -18,7 +18,7 @@ import java.util.Date;
 public class Student {
     @Id
     @Column(name = "student_id")
-    private String id;
+    private int id;
     @Column(name = "student_name")
     private String name;
     @Column(name = "student_id")
