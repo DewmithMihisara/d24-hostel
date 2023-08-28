@@ -2,10 +2,9 @@ package lk.ijse.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "room")
 public class Room {
     @Id
-    @Column(name = "room_id")
+    @Column(name = "room_id",length = 50)
     private String id;
     @Column(name = "room_type")
     private String type;
@@ -24,4 +23,6 @@ public class Room {
     private String key_money;
     @Column(name = "room_qty")
     private int qty;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy =  "room")
+    private List<Reservation> reservations = new ArrayList<>();
 }

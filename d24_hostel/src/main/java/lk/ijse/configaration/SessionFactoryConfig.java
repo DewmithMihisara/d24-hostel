@@ -1,5 +1,7 @@
 package lk.ijse.configaration;
 
+import lk.ijse.entity.Reservation;
+import lk.ijse.entity.Room;
 import lk.ijse.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,17 +10,27 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
+import java.io.IOException;
+import java.util.Properties;
+
 public class SessionFactoryConfig {
     private static SessionFactoryConfig factoryConfig;
     private final SessionFactory sessionFactory;
 
     private SessionFactoryConfig() {
-        StandardServiceRegistryBuilder standardServiceRegistryBuilder = new StandardServiceRegistryBuilder();
-        standardServiceRegistryBuilder.loadProperties("hibernate.properties");
-        MetadataSources metadataSources = new MetadataSources(standardServiceRegistryBuilder.build());
-        metadataSources.addAnnotatedClass(Student.class);
-        Metadata metadata = metadataSources.getMetadataBuilder().build();
-        sessionFactory = metadata.getSessionFactoryBuilder().build();
+        Configuration configuration = new Configuration();
+        Properties properties = new Properties();
+
+        try {
+            properties.load(ClassLoader.getSystemClassLoader().getResourceAsStream("hibernate.Properties"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        configuration
+                .addAnnotatedClass(Student.class)
+                .addAnnotatedClass(Room.class)
+                .addAnnotatedClass(Reservation.class);
+        sessionFactory=configuration.setProperties(properties).buildSessionFactory();
     }
 
     public static SessionFactoryConfig getInstance() {

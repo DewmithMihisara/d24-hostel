@@ -2,11 +2,11 @@ package lk.ijse.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,11 +17,11 @@ import java.util.Date;
 @Table(name = "student")
 public class Student {
     @Id
-    @Column(name = "student_id")
-    private int id;
+    @Column(name = "student_id",length = 50)
+    private String id;
     @Column(name = "student_name")
     private String name;
-    @Column(name = "student_id")
+    @Column(name = "address")
     private String address;
     @Column(name = "student_contact")
     private String contact;
@@ -29,4 +29,6 @@ public class Student {
     private Date dob;
     @Column(name = "student_gender")
     private String gender;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy =  "student")
+    private List<Reservation> reservations = new ArrayList<>();
 }
