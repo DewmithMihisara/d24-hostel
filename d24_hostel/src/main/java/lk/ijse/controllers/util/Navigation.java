@@ -15,6 +15,7 @@ public class Navigation {
         Stage window = (Stage) Navigation.root.getScene().getWindow();
         switch (rout) {
             case LOGIN -> initUi("logInForm.fxml");
+            case SIGN_UP -> initUi("signUpForm.fxml");
         }
     }
     private static void initUi(String location) throws IOException {

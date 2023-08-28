@@ -1,5 +1,5 @@
 package lk.ijse.controllers.util;
 
 public enum Rout {
-    LOGIN
+    LOGIN, SIGN_UP
 }

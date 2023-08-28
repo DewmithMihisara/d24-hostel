@@ -7,9 +7,16 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
+import lk.ijse.controllers.util.Navigation;
+import lk.ijse.controllers.util.Rout;
+
+import java.io.IOException;
 
 public class LogInFormController {
+    @FXML
+    private AnchorPane root;
     @FXML
     private ImageView viewImg;
     @FXML
@@ -49,8 +56,8 @@ public class LogInFormController {
     }
 
     @FXML
-    void signUpBtnOnAction(ActionEvent event) {
-
+    void signUpBtnOnAction(ActionEvent event) throws IOException {
+        Navigation.navigation(Rout.SIGN_UP,root);
     }
 
     @FXML
