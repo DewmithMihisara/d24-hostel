@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
+import lk.ijse.controllers.util.Validation;
 
 public class SignUpFormController {
     @FXML
@@ -45,19 +46,29 @@ public class SignUpFormController {
 
     @FXML
     private ImageView viewImg1;
-
+    boolean usr,pw,rePw;
+    {
+        usr=false;
+        pw=false;
+        rePw=false;
+    }
     @FXML
-    void pwTxtOnAction(ActionEvent event) {
-
+    void userNameTxtOnAction(ActionEvent event) {
+        pwTxt.requestFocus();
     }
 
     @FXML
-    void pwViewBtnOnAction(ActionEvent event) {
-
+    void pwTxtOnAction(ActionEvent event) {
+        rePwTxt.requestFocus();
     }
 
     @FXML
     void rePwTxtOnAction(ActionEvent event) {
+        signInBtn.fire();
+    }
+
+    @FXML
+    void pwViewBtnOnAction(ActionEvent event) {
 
     }
 
@@ -68,11 +79,6 @@ public class SignUpFormController {
 
     @FXML
     void signInBtnOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void userNameTxtOnAction(ActionEvent event) {
-
+        usr= Validation.txtValidation(userNameTxt,usrNameLine);
     }
 }
