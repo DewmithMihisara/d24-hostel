@@ -4,8 +4,6 @@ import animatefx.animation.Shake;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import lk.ijse.controllers.util.animation.Animation;
-
 public class Validation {
     static Shake shake;
     public static boolean txtValidation(TextField txt, Line line) {
