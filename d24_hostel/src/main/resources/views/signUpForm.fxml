@@ -9,7 +9,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controllers.SignUpFormController">
    <children>
       <ImageView fitHeight="1024.0" fitWidth="1440.0" layoutX="345.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -42,8 +41,8 @@
             </ImageView>
          </graphic>
       </Button>
-      <Line fx:id="usrNameLine1" endX="334.1544189453125" endY="1.32598876953125" layoutX="240.0" layoutY="719.0" startX="-100.0" startY="1.32598876953125" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="599.0" />
-      <Line fx:id="usrNameLine2" endX="334.1544189453125" endY="1.32598876953125" layoutX="240.0" layoutY="719.0" startX="-100.0" startY="1.32598876953125" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="690.0" />
+      <Line fx:id="pwLine" endX="334.1544189453125" endY="1.32598876953125" layoutX="240.0" layoutY="719.0" startX="-100.0" startY="1.32598876953125" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="599.0" />
+      <Line fx:id="rePwLine" endX="334.1544189453125" endY="1.32598876953125" layoutX="240.0" layoutY="719.0" startX="-100.0" startY="1.32598876953125" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="690.0" />
       <PasswordField fx:id="rePwTxt" layoutX="149.0" layoutY="644.0" onAction="#rePwTxtOnAction" prefHeight="45.0" prefWidth="345.0" promptText="Re Enter Password">
          <font>
             <Font size="21.0" />

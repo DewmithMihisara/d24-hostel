@@ -2,13 +2,18 @@ package lk.ijse.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
+import lk.ijse.bo.BoFactory;
+import lk.ijse.bo.custom.UserBo;
+import lk.ijse.controllers.util.CustomAlert;
 import lk.ijse.controllers.util.Validation;
+import lk.ijse.dto.UserDTO;
 
 public class SignUpFormController {
     @FXML
@@ -36,10 +41,9 @@ public class SignUpFormController {
     private Line usrNameLine;
 
     @FXML
-    private Line usrNameLine1;
-
+    private Line rePwLine;
     @FXML
-    private Line usrNameLine2;
+    private Line pwLine;
 
     @FXML
     private ImageView viewImg;
@@ -47,11 +51,7 @@ public class SignUpFormController {
     @FXML
     private ImageView viewImg1;
     boolean usr,pw,rePw;
-    {
-        usr=false;
-        pw=false;
-        rePw=false;
-    }
+    private UserBo userBo= BoFactory.getInstance().getBo(BoFactory.BOTypes.USER);
     @FXML
     void userNameTxtOnAction(ActionEvent event) {
         pwTxt.requestFocus();
@@ -79,6 +79,30 @@ public class SignUpFormController {
 
     @FXML
     void signInBtnOnAction(ActionEvent event) {
+        usrValidation();
+        if (usr && pw && rePw){
+            boolean save= userBo.saveUser(new UserDTO(userNameTxt.getText(),pwTxt.getText()));
+            if (save){
+                new CustomAlert(Alert.AlertType.CONFIRMATION,"Save ","Saved !","Save successful !").show();
+            }else {
+                new CustomAlert(Alert.AlertType.ERROR,"Save ","Not Saved !","Save not successful !").show();
+            }
+        }
+    }
+
+    private void usrValidation() {
+        usr=false;
+        pw=false;
+        rePw=false;
         usr= Validation.txtValidation(userNameTxt,usrNameLine);
+        pw=Validation.pwValidation(pwTxt,pwLine);
+        rePw=Validation.pwValidation(rePwTxt,rePwLine);
+        if (!pwTxt.getText().equals(rePwTxt.getText())){
+            Validation.shakeLine(pwLine);
+            Validation.shakeLine(rePwLine);
+        }else {
+            Validation.defaultLine(pwLine);
+            Validation.defaultLine(rePwLine);
+        }
     }
 }
