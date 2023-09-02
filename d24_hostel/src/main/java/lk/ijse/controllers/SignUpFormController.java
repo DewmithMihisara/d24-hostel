@@ -12,8 +12,12 @@ import javafx.scene.shape.Line;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.custom.UserBo;
 import lk.ijse.controllers.util.CustomAlert;
+import lk.ijse.controllers.util.Navigation;
+import lk.ijse.controllers.util.Rout;
 import lk.ijse.controllers.util.Validation;
 import lk.ijse.dto.UserDTO;
+
+import java.io.IOException;
 
 public class SignUpFormController {
     @FXML
@@ -76,7 +80,10 @@ public class SignUpFormController {
     void rePwViewBtnOnAction(ActionEvent event) {
 
     }
-
+    @FXML
+    void backBtnOnAction(ActionEvent event) throws IOException {
+        Navigation.navigation(Rout.LOGIN,root);
+    }
     @FXML
     void signInBtnOnAction(ActionEvent event) {
         usrValidation();
