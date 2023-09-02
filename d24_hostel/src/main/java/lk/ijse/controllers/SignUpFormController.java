@@ -84,6 +84,9 @@ public class SignUpFormController {
             boolean save= userBo.saveUser(new UserDTO(userNameTxt.getText(),pwTxt.getText()));
             if (save){
                 new CustomAlert(Alert.AlertType.CONFIRMATION,"Save ","Saved !","Save successful !").show();
+                userNameTxt.setText("");
+                pwTxt.setText("");
+                rePwTxt.setText("");
             }else {
                 new CustomAlert(Alert.AlertType.ERROR,"Save ","Not Saved !","Save not successful !").show();
             }
