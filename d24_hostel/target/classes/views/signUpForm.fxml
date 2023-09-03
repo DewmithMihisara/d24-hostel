@@ -17,22 +17,22 @@
          </image>
       </ImageView>
       <Line fx:id="usrNameLine" endX="334.1544189453125" endY="1.32598876953125" layoutX="230.0" layoutY="709.0" startX="-100.0" startY="1.32598876953125" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="507.5" />
-      <Button fx:id="signInBtn" layoutX="129.0" layoutY="924.0" mnemonicParsing="false" onAction="#signInBtnOnAction" prefHeight="53.0" prefWidth="434.01" text="Sign In" textFill="WHITE" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="781.0">
+      <Button fx:id="signInBtn" layoutX="129.0" layoutY="924.0" mnemonicParsing="false" onAction="#signInBtnOnAction" prefHeight="53.0" prefWidth="434.01" stylesheets="@../styles/style.css" text="Sign In" textFill="WHITE" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="781.0">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <TextField fx:id="userNameTxt" layoutX="148.0" layoutY="462.0" onAction="#userNameTxtOnAction" prefHeight="45.0" prefWidth="396.0" promptText="User Name">
+      <TextField fx:id="userNameTxt" layoutX="148.0" layoutY="462.0" onAction="#userNameTxtOnAction" prefHeight="45.0" prefWidth="396.0" promptText="User Name" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="21.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="pwTxt" layoutX="148.0" layoutY="553.0" onAction="#pwTxtOnAction" prefHeight="45.0" prefWidth="345.0" promptText="Password">
+      <PasswordField fx:id="pwTxt" layoutX="148.0" layoutY="553.0" onAction="#pwTxtOnAction" prefHeight="45.0" prefWidth="345.0" promptText="Password" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="21.0" />
          </font>
       </PasswordField>
-      <Button fx:id="pwViewBtn" layoutX="494.0" layoutY="553.0" mnemonicParsing="false" onAction="#pwViewBtnOnAction" prefHeight="45.0" prefWidth="45.0">
+      <Button fx:id="pwViewBtn" layoutX="494.0" layoutY="553.0" mnemonicParsing="false" onAction="#pwViewBtnOnAction" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css">
          <graphic>
             <ImageView fx:id="viewImg" fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -43,12 +43,12 @@
       </Button>
       <Line fx:id="pwLine" endX="334.1544189453125" endY="1.32598876953125" layoutX="240.0" layoutY="719.0" startX="-100.0" startY="1.32598876953125" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="599.0" />
       <Line fx:id="rePwLine" endX="334.1544189453125" endY="1.32598876953125" layoutX="240.0" layoutY="719.0" startX="-100.0" startY="1.32598876953125" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="690.0" />
-      <PasswordField fx:id="rePwTxt" layoutX="149.0" layoutY="644.0" onAction="#rePwTxtOnAction" prefHeight="45.0" prefWidth="345.0" promptText="Re Enter Password">
+      <PasswordField fx:id="rePwTxt" layoutX="149.0" layoutY="644.0" onAction="#rePwTxtOnAction" prefHeight="45.0" prefWidth="345.0" promptText="Re Enter Password" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="21.0" />
          </font>
       </PasswordField>
-      <Button fx:id="rePwViewBtn" layoutX="495.0" layoutY="644.0" mnemonicParsing="false" onAction="#rePwViewBtnOnAction" prefHeight="45.0" prefWidth="45.0">
+      <Button fx:id="rePwViewBtn" layoutX="495.0" layoutY="644.0" mnemonicParsing="false" onAction="#rePwViewBtnOnAction" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css">
          <graphic>
             <ImageView fx:id="viewImg1" fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -57,7 +57,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="1353.0" layoutY="27.0" mnemonicParsing="false" onAction="#backBtnOnAction" AnchorPane.bottomAnchor="939.0" AnchorPane.leftAnchor="1345.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="27.0">
+      <Button layoutX="1353.0" layoutY="27.0" mnemonicParsing="false" onAction="#backBtnOnAction" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css" AnchorPane.bottomAnchor="939.0" AnchorPane.leftAnchor="1345.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="27.0">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>

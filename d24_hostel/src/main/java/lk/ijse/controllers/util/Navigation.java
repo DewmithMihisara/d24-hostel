@@ -18,6 +18,10 @@ public class Navigation {
             case SIGN_UP -> initUi("signUpForm.fxml");
             case DASH_BOARD -> initUi("dashBoardForm.fxml");
             case HOME -> initUi("homeForm.fxml");
+            case SETTINGS -> initUi("settingsForm.fxml");
+            case ROOMS -> initUi("roomForm.fxml");
+            case STUDENT -> initUi("stdForm.fxml");
+            case RESERVATION -> initUi("reservationForm.fxml");
         }
     }
     private static void initUi(String location) throws IOException {

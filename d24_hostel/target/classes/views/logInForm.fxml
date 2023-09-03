@@ -16,24 +16,24 @@
             <Image url="@../assets/Log_in.png" />
          </image>
       </ImageView>
-      <Button fx:id="loginBtn" layoutX="285.0" layoutY="690.0" mnemonicParsing="false" onAction="#loginBtnOnAction" prefHeight="53.0" prefWidth="434.01" text="Log In" textFill="WHITE" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="686.0">
+      <Button fx:id="loginBtn" layoutX="285.0" layoutY="690.0" mnemonicParsing="false" onAction="#loginBtnOnAction" prefHeight="53.0" prefWidth="434.01" stylesheets="@../styles/style.css" text="Log In" textFill="WHITE" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="686.0">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
       <Line fx:id="pwLine" endX="334.1544189453125" endY="1.32598876953125" layoutX="210.0" layoutY="689.0" scaleY="2.0" startX="-100.0" startY="1.32598876953125" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="599.0" />
       <Line fx:id="usrNameLine" endX="334.1544189453125" endY="1.32598876953125" layoutX="220.0" layoutY="699.0" scaleY="2.0" startX="-100.0" startY="1.32598876953125" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="507.5" />
-      <TextField fx:id="userNameTxt" layoutX="148.0" layoutY="462.0" onAction="#userNameTxtOnAction" prefHeight="45.0" prefWidth="396.0" promptText="User Name">
+      <TextField fx:id="userNameTxt" layoutX="148.0" layoutY="462.0" onAction="#userNameTxtOnAction" prefHeight="45.0" prefWidth="396.0" promptText="User Name" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="21.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="pwTxt" layoutX="148.0" layoutY="553.0" onAction="#pwTxtOnAction" prefHeight="45.0" prefWidth="345.0" promptText="Password">
+      <PasswordField fx:id="pwTxt" layoutX="148.0" layoutY="553.0" onAction="#pwTxtOnAction" prefHeight="45.0" prefWidth="345.0" promptText="Password" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="21.0" />
          </font>
       </PasswordField>
-      <Button fx:id="pwViewBtn" layoutX="494.0" layoutY="553.0" mnemonicParsing="false" onAction="#pwViewBtnOnAction" prefHeight="45.0" prefWidth="45.0">
+      <Button fx:id="pwViewBtn" layoutX="494.0" layoutY="553.0" mnemonicParsing="false" onAction="#pwViewBtnOnAction" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css">
          <graphic>
             <ImageView fx:id="viewImg" fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -42,7 +42,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="signUpBtn" layoutX="391.0" layoutY="780.0" mnemonicParsing="false" onAction="#signUpBtnOnAction" text="Sign up" textFill="#090963">
+      <Button fx:id="signUpBtn" layoutX="391.0" layoutY="780.0" mnemonicParsing="false" onAction="#signUpBtnOnAction" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css" text="Sign up" textFill="#090963">
          <font>
             <Font size="16.0" />
          </font>

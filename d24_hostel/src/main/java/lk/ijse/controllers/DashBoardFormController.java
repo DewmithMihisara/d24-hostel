@@ -34,15 +34,35 @@ public class DashBoardFormController implements Initializable {
     }
     @FXML
     void reservationBtnOnAction(ActionEvent event) {
-
+        try {
+            Navigation.navigation(Rout.RESERVATION,bodyPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     @FXML
     void roomsBtnOnAction(ActionEvent event) {
-
+        try {
+            Navigation.navigation(Rout.ROOMS, bodyPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     @FXML
     void stdBtnOnAction(ActionEvent event) {
-
+        try {
+            Navigation.navigation(Rout.STUDENT,bodyPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    void logOutBtnOnAction(ActionEvent event) {
+        try {
+            Navigation.navigation(Rout.LOGIN,root);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
