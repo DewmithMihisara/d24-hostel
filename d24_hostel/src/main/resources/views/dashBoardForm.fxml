@@ -12,9 +12,10 @@
             <Image url="@../assets/dashboard.png" />
          </image>
       </ImageView>
-      <Button layoutX="68.0" layoutY="297.0" mnemonicParsing="false" onAction="#homeBtnOnAction" text="home" AnchorPane.leftAnchor="65.0" />
+      <Button fx:id="hmBtn" layoutX="68.0" layoutY="297.0" mnemonicParsing="false" onAction="#homeBtnOnAction" text="home" AnchorPane.leftAnchor="65.0" />
       <Button layoutX="138.0" layoutY="347.0" mnemonicParsing="false" onAction="#roomsBtnOnAction" text="rooms" AnchorPane.leftAnchor="65.0" />
       <Button layoutX="58.0" layoutY="390.0" mnemonicParsing="false" onAction="#stdBtnOnAction" text="syudents" AnchorPane.leftAnchor="65.0" />
       <Button layoutX="152.0" layoutY="483.0" mnemonicParsing="false" onAction="#reservationBtnOnAction" text="reservation" AnchorPane.leftAnchor="65.0" />
+      <AnchorPane fx:id="bodyPane" layoutX="345.0" prefHeight="1024.0" prefWidth="1095.0" />
    </children>
 </AnchorPane>

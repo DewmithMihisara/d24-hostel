@@ -17,6 +17,7 @@ public class Navigation {
             case LOGIN -> initUi("logInForm.fxml");
             case SIGN_UP -> initUi("signUpForm.fxml");
             case DASH_BOARD -> initUi("dashBoardForm.fxml");
+            case HOME -> initUi("homeForm.fxml");
         }
     }
     private static void initUi(String location) throws IOException {
