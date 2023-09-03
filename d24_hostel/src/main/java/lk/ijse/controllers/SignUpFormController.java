@@ -55,7 +55,7 @@ public class SignUpFormController {
     @FXML
     private ImageView viewImg1;
     boolean usr,pw,rePw;
-    private UserBo userBo= BoFactory.getInstance().getBo(BoFactory.BOTypes.USER);
+    private final UserBo userBo= BoFactory.getInstance().getBo(BoFactory.BOTypes.USER);
     @FXML
     void userNameTxtOnAction(ActionEvent event) {
         pwTxt.requestFocus();
@@ -81,8 +81,12 @@ public class SignUpFormController {
 
     }
     @FXML
-    void backBtnOnAction(ActionEvent event) throws IOException {
-        Navigation.navigation(Rout.LOGIN,root);
+    void backBtnOnAction(ActionEvent event) {
+        try {
+            Navigation.navigation(Rout.LOGIN,root);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     @FXML
     void signInBtnOnAction(ActionEvent event) {

@@ -1,5 +1,6 @@
 package lk.ijse.dao.custom.impl;
 
+import lk.ijse.bo.custom.UserBo;
 import lk.ijse.configaration.SessionFactoryConfig;
 import lk.ijse.dao.custom.UserDAO;
 import lk.ijse.entity.User;
@@ -37,6 +38,12 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User getItem(String id) {
-        return null;
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            Transaction transaction = session.beginTransaction();
+            User user = session.get(User.class, id);
+            transaction.commit();
+            return user;
+        }
+
     }
 }

@@ -16,6 +16,7 @@ public class Navigation {
         switch (rout) {
             case LOGIN -> initUi("logInForm.fxml");
             case SIGN_UP -> initUi("signUpForm.fxml");
+            case DASH_BOARD -> initUi("dashBoardForm.fxml");
         }
     }
     private static void initUi(String location) throws IOException {

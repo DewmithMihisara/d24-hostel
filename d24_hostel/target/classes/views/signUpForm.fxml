@@ -57,5 +57,14 @@
             </ImageView>
          </graphic>
       </Button>
+      <Button layoutX="1353.0" layoutY="27.0" mnemonicParsing="false" onAction="#backBtnOnAction" AnchorPane.bottomAnchor="939.0" AnchorPane.leftAnchor="1345.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="27.0">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/back-button%202.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

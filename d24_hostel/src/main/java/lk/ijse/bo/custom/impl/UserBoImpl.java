@@ -15,4 +15,10 @@ public class UserBoImpl implements UserBo {
                 userDTO.getPassword()
         ));
     }
+
+    @Override
+    public boolean getUser(UserDTO userDTO) {
+        User user= userDAO.getItem(userDTO.getUserName());
+        return user != null;
+    }
 }

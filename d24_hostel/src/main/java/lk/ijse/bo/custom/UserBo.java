@@ -6,4 +6,6 @@ import lk.ijse.dto.UserDTO;
 public interface UserBo extends SuperBo {
 
     boolean saveUser(UserDTO userDTO);
+
+    boolean getUser(UserDTO userDTO);
 }
