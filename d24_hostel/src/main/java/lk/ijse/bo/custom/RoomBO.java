@@ -1,4 +1,6 @@
 package lk.ijse.bo.custom;
 
-public interface RoomBO extends StudentBO{
+import lk.ijse.bo.SuperBo;
+
+public interface RoomBO extends SuperBo {
 }
