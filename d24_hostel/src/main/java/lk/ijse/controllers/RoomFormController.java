@@ -163,7 +163,14 @@ public class RoomFormController {
 
     @FXML
     void upBtnOnAction(ActionEvent event) {
-
+        validation();
+        if (roomBO.updateRoom(new RoomDTO(roomIdTxt.getText(),roomTypeTxt.getText(),Integer.parseInt(qtyTxt.getText()),keyMoneyTxt.getText()))){
+            new CustomAlert(Alert.AlertType.CONFIRMATION,"Update ","Updated !","Student Update successful !").show();
+            fillTable();
+            initUi();
+        }else {
+            new CustomAlert(Alert.AlertType.ERROR,"Update ","Not Update !","Update not successful !").show();
+        }
     }
     @FXML
     void deleteBtnOnAction(ActionEvent event) {

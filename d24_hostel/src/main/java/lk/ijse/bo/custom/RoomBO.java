@@ -10,4 +10,6 @@ public interface RoomBO extends SuperBo {
     List<RoomDTO> getAll();
 
     boolean saveRoom(RoomDTO roomDTO);
+
+    boolean updateRoom(RoomDTO roomDTO);
 }

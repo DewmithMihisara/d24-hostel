@@ -204,7 +204,7 @@ public class StdFormController {
     void svBtnOnAction(ActionEvent event) {
         validate();
         if (studentBO.saveStd(new StudentDTO(idTxt.getText(),nameTxt.getText(),addressTxt.getText(),contactTxt.getText(),Date.valueOf(dobPicker.getValue()),genTxt.getText()))){
-            new CustomAlert(Alert.AlertType.CONFIRMATION,"Update ","Updated !","Item Update successful !").show();
+            new CustomAlert(Alert.AlertType.CONFIRMATION,"Update ","Updated !","Student Update successful !").show();
             fillTable();
             initUi();
         }else {
@@ -216,7 +216,7 @@ public class StdFormController {
     void upBtnOnAction(ActionEvent event) {
         validate();
         if (studentBO.updateStd(new StudentDTO(idTxt.getText(),nameTxt.getText(),addressTxt.getText(),contactTxt.getText(),Date.valueOf(dobPicker.getValue()),genTxt.getText()))){
-            new CustomAlert(Alert.AlertType.CONFIRMATION,"Update ","Updated !","Item Update successful !").show();
+            new CustomAlert(Alert.AlertType.CONFIRMATION,"Update ","Updated !","Student Update successful !").show();
             fillTable();
             initUi();
         }else {

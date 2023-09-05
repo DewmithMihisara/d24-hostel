@@ -1,5 +1,6 @@
 package lk.ijse.dao.custom.impl;
 
+import javafx.scene.control.Alert;
 import lk.ijse.configaration.SessionFactoryConfig;
 import lk.ijse.dao.custom.RoomDAO;
 import lk.ijse.entity.Room;
@@ -25,7 +26,15 @@ public class RoomDAOImpl implements RoomDAO {
 
     @Override
     public boolean update(Room dto) {
-        return false;
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.update(dto);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            return false;
+        }
     }
 
     @Override
