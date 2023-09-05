@@ -118,7 +118,8 @@ public class RoomFormController {
 
         svBtn.setDisable(true);
         upBtn.setDisable(true);
-        svBtn.setDisable(true);
+        deleteBtn.setDisable(true);
+        searchTxt.requestFocus();
     }
 
     @FXML
@@ -158,7 +159,12 @@ public class RoomFormController {
 
     @FXML
     void addNewBtnOnAction(ActionEvent event) {
-
+        roomIdTxt.setDisable(false);
+        roomTypeTxt.setDisable(false);
+        qtyTxt.setDisable(false);
+        keyMoneyTxt.setDisable(false);
+        svBtn.setDisable(false);
+        idTxt.requestFocus();
     }
 
     @FXML

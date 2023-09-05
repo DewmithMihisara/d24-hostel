@@ -1,6 +1,7 @@
 package lk.ijse.dao;
 
 import lk.ijse.bo.custom.impl.UserBoImpl;
+import lk.ijse.dao.custom.impl.RoomDAOImpl;
 import lk.ijse.dao.custom.impl.StudentDAOImpl;
 import lk.ijse.dao.custom.impl.UserDAOImpl;
 
@@ -14,7 +15,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes{
-        USER, STUDENT
+        USER, STUDENT, ROOM
     }
 
     public <T extends SuperDAO>T getDAO(DAOTypes types){
@@ -23,6 +24,8 @@ public class DAOFactory {
                 return (T) new UserDAOImpl();
             case STUDENT:
                 return (T) new StudentDAOImpl();
+            case ROOM:
+                return (T) new RoomDAOImpl();
             default:
                 return null;
         }
