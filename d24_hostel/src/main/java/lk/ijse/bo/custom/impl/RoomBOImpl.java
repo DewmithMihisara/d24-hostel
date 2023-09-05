@@ -63,4 +63,9 @@ public class RoomBOImpl implements RoomBO {
         return null;
     }
 
+    @Override
+    public boolean deleteRoom(String text) {
+        return roomDAO.delete(text);
+    }
+
 }

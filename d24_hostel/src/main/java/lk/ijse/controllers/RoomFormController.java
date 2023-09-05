@@ -192,7 +192,13 @@ public class RoomFormController {
     }
     @FXML
     void deleteBtnOnAction(ActionEvent event) {
-
+        if (roomBO.deleteRoom(roomIdTxt.getText())){
+            new CustomAlert(Alert.AlertType.CONFIRMATION,"Delete ","Deleted !","Room Deleted successful !").show();
+            fillTable();
+            initUi();
+        }else {
+            new CustomAlert(Alert.AlertType.ERROR,"Delete ","Not Deleted !","Delete not successful !").show();
+        }
     }
     @FXML
     void addNewBtnOnAction(ActionEvent event) {
