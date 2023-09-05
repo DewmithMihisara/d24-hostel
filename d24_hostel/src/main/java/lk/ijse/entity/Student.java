@@ -4,7 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 @Getter
@@ -31,4 +31,13 @@ public class Student {
     private String gender;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy =  "student")
     private List<Reservation> reservations = new ArrayList<>();
+
+    public Student(String sId, String name, String address, String contact, Date dob, String gen) {
+        this.name=name;
+        this.id=sId;
+        this.address=address;
+        this.contact=contact;
+        this.dob=dob;
+        this.gender=gen;
+    }
 }

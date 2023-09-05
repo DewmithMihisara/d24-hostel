@@ -8,12 +8,18 @@ import org.hibernate.Transaction;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import java.io.Serializable;
 import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
     @Override
     public boolean save(Student dto) {
-        return false;
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            Transaction transaction = session.beginTransaction();
+            Serializable save = session.save(dto);
+            transaction.commit();
+            return save != null;
+        }
     }
 
     @Override

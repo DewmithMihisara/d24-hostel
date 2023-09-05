@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface StudentBO extends SuperBo {
     List<StudentDTO> getAll();
+
+    boolean saveStd(StudentDTO studentDTO);
 }

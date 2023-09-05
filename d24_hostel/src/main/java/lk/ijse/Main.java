@@ -10,7 +10,7 @@ import lk.ijse.configaration.SessionFactoryConfig;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/views/dashBoardForm.fxml")));
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/views/logInForm.fxml")));
         stage.setScene(scene);
         stage.setTitle("D-24");
         stage.getIcons().add(new Image("/assets/d23_logo.png"));

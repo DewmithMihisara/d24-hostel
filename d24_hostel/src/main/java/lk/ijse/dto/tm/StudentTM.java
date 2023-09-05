@@ -3,7 +3,7 @@ package lk.ijse.dto.tm;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Data
 @AllArgsConstructor

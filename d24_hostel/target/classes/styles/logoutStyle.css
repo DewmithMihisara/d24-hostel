@@ -1,0 +1,17 @@
+/* Logout button style */
+.logout-button {
+    -fx-background-color: #FF928F;
+    -fx-text-fill: white;
+    -fx-font-size: 32px;
+    -fx-border-radius: 50;
+}
+
+/* Logout button hover style */
+.logout-button:hover {
+    -fx-background-color: #E8605B;
+}
+
+/* Logout button pressed style */
+.logout-button:pressed {
+    -fx-background-color: #E8605B;
+}

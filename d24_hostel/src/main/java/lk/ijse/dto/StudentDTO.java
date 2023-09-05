@@ -3,7 +3,8 @@ package lk.ijse.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.Date;
+import java.sql.Date;
+
 @Data
 @AllArgsConstructor
 public class StudentDTO {

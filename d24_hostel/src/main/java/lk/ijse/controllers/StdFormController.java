@@ -9,8 +9,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.shape.Line;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.custom.StudentBO;
+import lk.ijse.controllers.util.CustomAlert;
+import lk.ijse.controllers.util.Validation;
 import lk.ijse.dto.StudentDTO;
 import lk.ijse.dto.tm.StudentTM;
+
+import java.sql.Date;
 
 public class StdFormController {
     @FXML
@@ -82,6 +86,7 @@ public class StdFormController {
     @FXML
     private Button upBtn;
     private final StudentBO studentBO=BoFactory.getInstance().getBo(BoFactory.BOTypes.STUDENT);
+    boolean id, name, gen, dob, contact, address;
     @FXML
     void initialize(){
         initUi();
@@ -92,7 +97,6 @@ public class StdFormController {
     private void fillTable() {
         ObservableList<StudentTM> studentTMS = FXCollections.observableArrayList();
         for (StudentDTO studentDTO : studentBO.getAll()) {
-            System.out.println(studentDTO.getGen());
             studentTMS.add(new StudentTM(
                     studentDTO.getSId(),
                     studentDTO.getName(),
@@ -180,7 +184,29 @@ public class StdFormController {
 
     @FXML
     void svBtnOnAction(ActionEvent event) {
+        validate();
+        if (studentBO.saveStd(new StudentDTO(idTxt.getText(),nameTxt.getText(),addressTxt.getText(),contactTxt.getText(),Date.valueOf(dobPicker.getValue()),genTxt.getText()))){
+            new CustomAlert(Alert.AlertType.CONFIRMATION,"Update ","Updated !","Item Update successful !").show();
+            fillTable();
+            initUi();
+        }else {
+            new CustomAlert(Alert.AlertType.ERROR,"Update ","Not Update !","Update not successful !").show();
+        }
+    }
 
+    private void validate() {
+        id=false;
+        name=false;
+        gen=false;
+        dob=false;
+        contact=false;
+        address=false;
+        id= Validation.txtValidation(idTxt,idLine);
+        name=Validation.txtValidation(nameTxt,nameLine);
+        gen=Validation.txtValidation(genTxt,genLine);
+        dob=Validation.dateValidation(dobPicker);
+        contact=Validation.txtValidation(contactTxt,contactLine);
+        address=Validation.txtValidation(addressTxt,addressLine);
     }
 
     @FXML

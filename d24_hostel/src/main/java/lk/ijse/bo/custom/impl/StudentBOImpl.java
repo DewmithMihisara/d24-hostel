@@ -6,11 +6,15 @@ import lk.ijse.dao.custom.StudentDAO;
 import lk.ijse.dto.StudentDTO;
 import lk.ijse.entity.Student;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class StudentBOImpl implements StudentBO {
-    StudentDAO studentDAO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.STUDENT);
+    StudentDAO studentDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.STUDENT);
+
     @Override
     public List<StudentDTO> getAll() {
         List<StudentDTO> studentDTOS = new ArrayList<>();
@@ -25,5 +29,17 @@ public class StudentBOImpl implements StudentBO {
             );
         }
         return studentDTOS;
+    }
+
+    @Override
+    public boolean saveStd(StudentDTO studentDTO) {
+        return studentDAO.save(new Student(
+            studentDTO.getSId(),
+                studentDTO.getName(),
+                studentDTO.getAddress(),
+                studentDTO.getContact(),
+                studentDTO.getDob(),
+                studentDTO.getGen()
+        ));
     }
 }
