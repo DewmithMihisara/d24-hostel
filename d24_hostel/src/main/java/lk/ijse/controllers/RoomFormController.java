@@ -6,12 +6,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 
 public class RoomFormController {
     @FXML
+    private Button addBtn1;
+
+    @FXML
+    private Button deleteBtn;
+
+    @FXML
     private TableColumn<?, ?> idColm;
+
+    @FXML
+    private Line idLine;
 
     @FXML
     private Text idTxt;
@@ -44,9 +54,6 @@ public class RoomFormController {
     private Line roomTypeLine;
 
     @FXML
-    private Line roomTypeLine1;
-
-    @FXML
     private TextField roomTypeTxt;
 
     @FXML
@@ -56,7 +63,48 @@ public class RoomFormController {
     private TextField searchTxt;
 
     @FXML
+    private Button svBtn;
+
+    @FXML
     private TableColumn<?, ?> typeColm;
+
+    @FXML
+    private Button upBtn;
+
+    @FXML
+    void initialize() {
+        initUi();
+        setCellValueFactory();
+        fillTable();
+    }
+
+    private void fillTable() {
+
+    }
+
+    private void setCellValueFactory() {
+        idColm.setCellValueFactory(new PropertyValueFactory<>("id"));
+        typeColm.setCellValueFactory(new PropertyValueFactory<>("type"));
+        qtyColm.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        kyMoneyColm.setCellValueFactory(new PropertyValueFactory<>("keyMoney"));
+    }
+
+    private void initUi() {
+        roomIdTxt.clear();
+        roomTypeTxt.clear();
+        qtyTxt.clear();
+        keyMoneyTxt.clear();
+
+        roomIdTxt.setDisable(true);
+        roomTypeTxt.setDisable(true);
+        qtyTxt.setDisable(true);
+        keyMoneyTxt.setDisable(true);
+
+        svBtn.setDisable(true);
+        upBtn.setDisable(true);
+        svBtn.setDisable(true);
+    }
+
     @FXML
     void qtyTxtOnAction(ActionEvent event) {
         keyMoneyTxt.requestFocus();
@@ -80,13 +128,19 @@ public class RoomFormController {
 
     }
     @FXML
-    void svBtnOAction(ActionEvent event) {
+    void svBtnOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void upBtnOnAction(ActionEvent event) {
 
     }
     @FXML
-    void updateBtnOnAction(ActionEvent event) {
+    void addNewBtnOnAction(ActionEvent event) {
 
     }
+
     @FXML
     void deleteBtnOnAction(ActionEvent event) {
 

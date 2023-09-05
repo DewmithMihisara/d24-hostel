@@ -26,7 +26,7 @@
       <Line fx:id="roomTypeLine" endX="120.0" layoutX="543.0" layoutY="213.0" scaleY="2.0" startX="-120.0" AnchorPane.bottomAnchor="811.0" />
       <Line fx:id="qtyLine" endX="122.0" layoutX="906.0" layoutY="212.0" scaleY="2.0" startX="-120.0" AnchorPane.bottomAnchor="811.0" />
       <Line fx:id="kyMoneyLine" endX="120.0" layoutX="327.0" layoutY="300.0" scaleY="2.0" startX="-120.0" />
-      <TextField fx:id="roomType" layoutX="422.0" layoutY="166.0" onAction="#roomTypeOnAction" prefHeight="25.0" prefWidth="241.0" style="-fx-background-color: tranceparent;">
+      <TextField fx:id="roomTypeTxt" layoutX="422.0" layoutY="166.0" onAction="#roomTypeOnAction" prefHeight="25.0" prefWidth="241.0" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="24.0" />
          </font>
@@ -36,7 +36,7 @@
             <Font size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="keyMoney" layoutX="207.0" layoutY="254.0" onAction="#keyMoneyOnAction" prefHeight="45.0" prefWidth="241.0" style="-fx-background-color: tranceparent;">
+      <TextField fx:id="keyMoneyTxt" layoutX="207.0" layoutY="254.0" prefHeight="45.0" prefWidth="241.0" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="24.0" />
          </font>
@@ -44,12 +44,12 @@
       <Button layoutX="877.0" layoutY="299.0" mnemonicParsing="false" onAction="#deleteBtnOnAction" prefHeight="29.0" prefWidth="150.0" stylesheets="@../styles/style.css" text="Delete" />
       <Button layoutX="711.0" layoutY="299.0" mnemonicParsing="false" onAction="#updateBtnOnAction" prefHeight="29.0" prefWidth="150.0" stylesheets="@../styles/style.css" text="Update" />
       <Button layoutX="543.0" layoutY="299.0" mnemonicParsing="false" onAction="#svBtnOAction" prefHeight="29.0" prefWidth="150.0" stylesheets="@../styles/style.css" text="Save" />
-      <TextField fx:id="searchTxt" layoutX="660.0" layoutY="57.0" prefHeight="45.0" prefWidth="368.0" style="-fx-background-color: tranceparent;">
+      <TextField fx:id="searchTxt" layoutX="660.0" layoutY="57.0" onAction="#searchTxtOnAction" prefHeight="45.0" prefWidth="368.0" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <Button layoutX="605.0" layoutY="58.0" mnemonicParsing="false" onAction="#searchBtnOnCtion" prefHeight="45.0" prefWidth="53.0" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css">
+      <Button fx:id="searchBtn" layoutX="605.0" layoutY="58.0" mnemonicParsing="false" onAction="#searchBtnOnCtion" prefHeight="45.0" prefWidth="53.0" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -66,5 +66,11 @@
             <TableColumn fx:id="kyMoneyColm" prefWidth="324.0" text="Key Money" />
         </columns>
       </TableView>
+      <Line fx:id="roomTypeLine1" endX="6.0" layoutX="234.0" layoutY="211.0" startX="-120.0" />
+      <TextField fx:id="roomIdTxt" layoutX="113.0" layoutY="164.0" onAction="#roomIdTxtOnAction" prefHeight="45.0" prefWidth="127.0" style="-fx-background-color: tranceparent;">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
