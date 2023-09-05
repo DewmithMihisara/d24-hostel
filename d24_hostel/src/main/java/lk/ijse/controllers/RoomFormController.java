@@ -1,5 +1,7 @@
 package lk.ijse.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,6 +11,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
+import lk.ijse.bo.BoFactory;
+import lk.ijse.bo.custom.RoomBO;
+import lk.ijse.dto.RoomDTO;
+import lk.ijse.dto.tm.RoomTM;
 
 public class RoomFormController {
     @FXML
@@ -45,7 +51,7 @@ public class RoomFormController {
     private TextField qtyTxt;
 
     @FXML
-    private TableView<?> rmTbl;
+    private TableView<RoomTM> rmTbl;
 
     @FXML
     private TextField roomIdTxt;
@@ -70,6 +76,7 @@ public class RoomFormController {
 
     @FXML
     private Button upBtn;
+    private final RoomBO roomBO = BoFactory.getInstance().getBo(BoFactory.BOTypes.ROOM);
 
     @FXML
     void initialize() {
@@ -79,7 +86,16 @@ public class RoomFormController {
     }
 
     private void fillTable() {
-
+        ObservableList<RoomTM> roomTMS = FXCollections.observableArrayList();
+        for (RoomDTO roomDTO : roomBO.getAll()) {
+            roomTMS.add(new RoomTM(
+                    roomDTO.getId(),
+                    roomDTO.getType(),
+                    roomDTO.getQty(),
+                    roomDTO.getKeyMoney())
+            );
+        }
+        rmTbl.setItems(roomTMS);
     }
 
     private void setCellValueFactory() {
@@ -119,14 +135,17 @@ public class RoomFormController {
     void roomTypeOnAction(ActionEvent event) {
         qtyTxt.requestFocus();
     }
+
     @FXML
     void searchTxtOnAction(ActionEvent event) {
         searchBtn.fire();
     }
+
     @FXML
     void searchBtnOnCtion(ActionEvent event) {
 
     }
+
     @FXML
     void svBtnOnAction(ActionEvent event) {
 
@@ -136,6 +155,7 @@ public class RoomFormController {
     void upBtnOnAction(ActionEvent event) {
 
     }
+
     @FXML
     void addNewBtnOnAction(ActionEvent event) {
 
