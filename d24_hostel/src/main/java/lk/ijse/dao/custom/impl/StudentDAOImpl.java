@@ -1,5 +1,7 @@
 package lk.ijse.dao.custom.impl;
 
+import javafx.scene.control.Alert;
+import lk.ijse.bo.custom.StudentBO;
 import lk.ijse.configaration.SessionFactoryConfig;
 import lk.ijse.dao.custom.StudentDAO;
 import lk.ijse.entity.Student;
@@ -24,7 +26,15 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public boolean update(Student dto) {
-        return false;
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.update(dto);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            return false;
+        }
     }
 
     @Override
@@ -47,6 +57,11 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student getItem(String id) {
-        return null;
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            Transaction transaction = session.beginTransaction();
+            Student item = session.get(Student.class, id);
+            transaction.commit();
+            return item;
+        }
     }
 }

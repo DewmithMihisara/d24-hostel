@@ -22,12 +22,12 @@
       <DatePicker fx:id="dobPicker" layoutX="226.0" layoutY="255.0" prefHeight="31.0" prefWidth="268.0" style="-fx-background-color: tranceparent;" />
       <Line fx:id="addressLine" endX="216.58905029296875" layoutX="296.0" layoutY="362.0" scaleY="2.0" startX="-120.0" />
       <Line fx:id="contactLine" endX="212.7470703125" layoutX="815.0" layoutY="285.0" scaleY="2.0" startX="-120.0" />
-      <TextField fx:id="searchTxt" layoutX="660.0" layoutY="57.0" prefHeight="45.0" prefWidth="368.0" style="-fx-background-color: tranceparent;">
+      <TextField fx:id="searchTxt" layoutX="660.0" layoutY="57.0" onAction="#searchTxtOnAction" prefHeight="45.0" prefWidth="368.0" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <Button layoutX="606.0" layoutY="58.0" mnemonicParsing="false" onAction="#searchBtnOnCtion" prefHeight="45.0" prefWidth="53.0" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css">
+      <Button fx:id="searchBtn" layoutX="606.0" layoutY="58.0" mnemonicParsing="false" onAction="#searchBtnOnCtion" prefHeight="45.0" prefWidth="53.0" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -39,7 +39,7 @@
       <Button fx:id="deleteBtn" layoutX="938.0" layoutY="369.0" mnemonicParsing="false" onAction="#deleteBtnOnAction" prefHeight="37.0" prefWidth="100.0" stylesheets="@../styles/style.css" text="Delete" />
       <Button fx:id="upBtn" layoutX="829.0" layoutY="369.0" mnemonicParsing="false" onAction="#upBtnOnAction" prefHeight="29.0" prefWidth="100.0" stylesheets="@../styles/style.css" text="Update" />
       <Button fx:id="svBtn" layoutX="720.0" layoutY="369.0" mnemonicParsing="false" onAction="#svBtnOnAction" prefHeight="29.0" prefWidth="100.0" stylesheets="@../styles/style.css" text="Save" />
-      <TextField fx:id="addressTxt" layoutX="175.0" layoutY="315.0" onAction="#addressTxtOnAction" prefHeight="45.0" prefWidth="338.0" style="-fx-background-color: tranceparent;">
+      <TextField fx:id="addressTxt" layoutX="175.0" layoutY="315.0" prefHeight="45.0" prefWidth="338.0" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="24.0" />
          </font>

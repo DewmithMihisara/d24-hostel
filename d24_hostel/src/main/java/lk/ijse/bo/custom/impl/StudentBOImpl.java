@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 public class StudentBOImpl implements StudentBO {
     StudentDAO studentDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.STUDENT);
 
@@ -34,12 +35,37 @@ public class StudentBOImpl implements StudentBO {
     @Override
     public boolean saveStd(StudentDTO studentDTO) {
         return studentDAO.save(new Student(
-            studentDTO.getSId(),
+                studentDTO.getSId(),
                 studentDTO.getName(),
                 studentDTO.getAddress(),
                 studentDTO.getContact(),
                 studentDTO.getDob(),
                 studentDTO.getGen()
         ));
+    }
+
+    @Override
+    public boolean updateStd(StudentDTO studentDTO) {
+        return studentDAO.update(new Student(
+                studentDTO.getSId(),
+                studentDTO.getName(),
+                studentDTO.getAddress(),
+                studentDTO.getContact(),
+                studentDTO.getDob(),
+                studentDTO.getGen()
+        ));
+    }
+
+    @Override
+    public StudentDTO getStudent(String sid) {
+        Student student = studentDAO.getItem(sid);
+        return new StudentDTO(
+                student.getId(),
+                student.getName(),
+                student.getAddress(),
+                student.getContact(),
+                student.getDob(),
+                student.getGender()
+        );
     }
 }

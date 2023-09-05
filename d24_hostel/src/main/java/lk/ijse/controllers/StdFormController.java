@@ -76,6 +76,8 @@ public class StdFormController {
 
     @FXML
     private TextField searchTxt;
+    @FXML
+    private Button searchBtn;
 
     @FXML
     private TableView<StudentTM> stdTbl;
@@ -148,18 +150,8 @@ public class StdFormController {
     }
 
     @FXML
-    void addressTxtOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void contactTxtOnAction(ActionEvent event) {
         addressTxt.requestFocus();
-    }
-
-    @FXML
-    void deleteBtnOnAction(ActionEvent event) {
-
     }
 
     @FXML
@@ -179,9 +171,35 @@ public class StdFormController {
 
     @FXML
     void searchBtnOnCtion(ActionEvent event) {
+        String sid=searchTxt.getText();
+        StudentDTO studentDTO=studentBO.getStudent(sid);
+        if (studentDTO!=null){
+            svBtn.setDisable(true);
+            upBtn.setDisable(false);
+            deleteBtn.setDisable(false);
+            idTxt.setDisable(true);
+            nameTxt.setDisable(false);
+            genTxt.setDisable(false);
+            dobPicker.setDisable(false);
+            contactTxt.setDisable(false);
+            addressTxt.setDisable(false);
+            idTxt.requestFocus();
 
+            idTxt.setText(studentDTO.getSId());
+            nameTxt.setText(studentDTO.getName());
+            genTxt.setText(studentDTO.getGen());
+            dobPicker.setValue(studentDTO.getDob().toLocalDate());
+            contactTxt.setText(studentDTO.getContact());
+            addressTxt.setText(studentDTO.getAddress());
+        }else {
+            new CustomAlert(Alert.AlertType.ERROR,"Error ","Invalid","Invalid student id !").show();
+        }
+        searchTxt.clear();
     }
-
+    @FXML
+    void searchTxtOnAction(ActionEvent event) {
+        searchBtn.fire();
+    }
     @FXML
     void svBtnOnAction(ActionEvent event) {
         validate();
@@ -194,6 +212,21 @@ public class StdFormController {
         }
     }
 
+    @FXML
+    void upBtnOnAction(ActionEvent event) {
+        validate();
+        if (studentBO.updateStd(new StudentDTO(idTxt.getText(),nameTxt.getText(),addressTxt.getText(),contactTxt.getText(),Date.valueOf(dobPicker.getValue()),genTxt.getText()))){
+            new CustomAlert(Alert.AlertType.CONFIRMATION,"Update ","Updated !","Item Update successful !").show();
+            fillTable();
+            initUi();
+        }else {
+            new CustomAlert(Alert.AlertType.ERROR,"Update ","Not Update !","Update not successful !").show();
+        }
+    }
+    @FXML
+    void deleteBtnOnAction(ActionEvent event) {
+
+    }
     private void validate() {
         id=false;
         name=false;
@@ -207,10 +240,5 @@ public class StdFormController {
         dob=Validation.dateValidation(dobPicker);
         contact=Validation.txtValidation(contactTxt,contactLine);
         address=Validation.txtValidation(addressTxt,addressLine);
-    }
-
-    @FXML
-    void upBtnOnAction(ActionEvent event) {
-
     }
 }

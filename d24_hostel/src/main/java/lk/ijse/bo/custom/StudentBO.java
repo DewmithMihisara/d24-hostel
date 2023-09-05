@@ -9,4 +9,8 @@ public interface StudentBO extends SuperBo {
     List<StudentDTO> getAll();
 
     boolean saveStd(StudentDTO studentDTO);
+
+    boolean updateStd(StudentDTO studentDTO);
+
+    StudentDTO getStudent(String sid);
 }
