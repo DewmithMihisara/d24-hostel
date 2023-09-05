@@ -57,45 +57,38 @@ public class RoomFormController {
 
     @FXML
     private TableColumn<?, ?> typeColm;
-
-    @FXML
-    void deleteBtnOnAction(ActionEvent event) {
-
-    }
-
     @FXML
     void qtyTxtOnAction(ActionEvent event) {
-
+        keyMoneyTxt.requestFocus();
     }
 
     @FXML
     void roomIdTxtOnAction(ActionEvent event) {
-
+        roomTypeTxt.requestFocus();
     }
 
     @FXML
     void roomTypeOnAction(ActionEvent event) {
-
+        qtyTxt.requestFocus();
     }
-
+    @FXML
+    void searchTxtOnAction(ActionEvent event) {
+        searchBtn.fire();
+    }
     @FXML
     void searchBtnOnCtion(ActionEvent event) {
 
     }
-
-    @FXML
-    void searchTxtOnAction(ActionEvent event) {
-
-    }
-
     @FXML
     void svBtnOAction(ActionEvent event) {
 
     }
-
     @FXML
     void updateBtnOnAction(ActionEvent event) {
 
     }
+    @FXML
+    void deleteBtnOnAction(ActionEvent event) {
 
+    }
 }
