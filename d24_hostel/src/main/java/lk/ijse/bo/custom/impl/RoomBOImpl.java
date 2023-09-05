@@ -28,4 +28,15 @@ public class RoomBOImpl implements RoomBO {
         }
         return roomDTOS;
     }
+
+    @Override
+    public boolean saveRoom(RoomDTO roomDTO) {
+        return roomDAO.save(new Room(
+                roomDTO.getId(),
+                roomDTO.getType(),
+                roomDTO.getKeyMoney(),
+                roomDTO.getQty()
+        ));
+    }
+
 }

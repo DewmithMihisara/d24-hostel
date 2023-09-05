@@ -4,17 +4,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.custom.RoomBO;
+import lk.ijse.controllers.util.CustomAlert;
+import lk.ijse.controllers.util.Validation;
 import lk.ijse.dto.RoomDTO;
+import lk.ijse.dto.StudentDTO;
 import lk.ijse.dto.tm.RoomTM;
+
+import java.sql.Date;
 
 public class RoomFormController {
     @FXML
@@ -77,7 +79,7 @@ public class RoomFormController {
     @FXML
     private Button upBtn;
     private final RoomBO roomBO = BoFactory.getInstance().getBo(BoFactory.BOTypes.ROOM);
-
+    boolean id, type, qty, keyMoney;
     @FXML
     void initialize() {
         initUi();
@@ -149,14 +151,24 @@ public class RoomFormController {
 
     @FXML
     void svBtnOnAction(ActionEvent event) {
-
+        validation();
+        if (roomBO.saveRoom(new RoomDTO(roomIdTxt.getText(),roomTypeTxt.getText(),Integer.parseInt(qtyTxt.getText()),keyMoneyTxt.getText()))){
+            new CustomAlert(Alert.AlertType.CONFIRMATION,"Update ","Updated !","Room Update successful !").show();
+            fillTable();
+            initUi();
+        }else {
+            new CustomAlert(Alert.AlertType.ERROR,"Update ","Not Update !","Update not successful !").show();
+        }
     }
 
     @FXML
     void upBtnOnAction(ActionEvent event) {
 
     }
+    @FXML
+    void deleteBtnOnAction(ActionEvent event) {
 
+    }
     @FXML
     void addNewBtnOnAction(ActionEvent event) {
         roomIdTxt.setDisable(false);
@@ -166,9 +178,14 @@ public class RoomFormController {
         svBtn.setDisable(false);
         idTxt.requestFocus();
     }
-
-    @FXML
-    void deleteBtnOnAction(ActionEvent event) {
-
+    private void validation() {
+        id=false;
+        type=false;
+        qty=false;
+        keyMoney=false;
+        id= Validation.txtValidation(roomIdTxt,idLine);
+        type=Validation.txtValidation(roomTypeTxt,roomTypeLine);
+        qty=Validation.txtValidation(qtyTxt,qtyLine);
+        keyMoney=Validation.txtValidation(keyMoneyTxt,kyMoneyLine);
     }
 }

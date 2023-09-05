@@ -9,12 +9,18 @@ import org.hibernate.Transaction;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import java.io.Serializable;
 import java.util.List;
 
 public class RoomDAOImpl implements RoomDAO {
     @Override
     public boolean save(Room dto) {
-        return false;
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            Transaction transaction = session.beginTransaction();
+            Serializable save = session.save(dto);
+            transaction.commit();
+            return save != null;
+        }
     }
 
     @Override
