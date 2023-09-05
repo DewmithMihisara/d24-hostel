@@ -225,7 +225,13 @@ public class StdFormController {
     }
     @FXML
     void deleteBtnOnAction(ActionEvent event) {
-
+        if (studentBO.deleteStd(idTxt.getText())){
+            new CustomAlert(Alert.AlertType.CONFIRMATION,"Delete ","Deleted !","Student Deleted successful !").show();
+            fillTable();
+            initUi();
+        }else {
+            new CustomAlert(Alert.AlertType.ERROR,"Delete ","Not Deleted !","Delete not successful !").show();
+        }
     }
     private void validate() {
         id=false;

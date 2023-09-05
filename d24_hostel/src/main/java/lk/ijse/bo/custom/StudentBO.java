@@ -13,4 +13,6 @@ public interface StudentBO extends SuperBo {
     boolean updateStd(StudentDTO studentDTO);
 
     StudentDTO getStudent(String sid);
+
+    boolean deleteStd(String text);
 }

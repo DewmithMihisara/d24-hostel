@@ -59,13 +59,21 @@ public class StudentBOImpl implements StudentBO {
     @Override
     public StudentDTO getStudent(String sid) {
         Student student = studentDAO.getItem(sid);
-        return new StudentDTO(
-                student.getId(),
-                student.getName(),
-                student.getAddress(),
-                student.getContact(),
-                student.getDob(),
-                student.getGender()
-        );
+        if (student!=null){
+            return new StudentDTO(
+                    student.getId(),
+                    student.getName(),
+                    student.getAddress(),
+                    student.getContact(),
+                    student.getDob(),
+                    student.getGender()
+            );
+        }
+        return null;
+    }
+
+    @Override
+    public boolean deleteStd(String text) {
+        return studentDAO.delete(text);
     }
 }
