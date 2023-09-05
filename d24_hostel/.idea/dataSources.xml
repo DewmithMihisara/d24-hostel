@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@localhost" uuid="ba859d42-ffcc-4269-99c4-2f9e6e4532da">
+    <data-source source="LOCAL" name="d24_hostel@localhost" uuid="9117438f-8f5c-4638-82e4-e0ec49fa6dd8">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="d24_hostel/Hibernate" uuid="3640eb30-c0d8-4649-889f-ca305cf4e2c1">
-      <driver-ref>mysql</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>Hibernate</remarks>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/d24_hostel</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
