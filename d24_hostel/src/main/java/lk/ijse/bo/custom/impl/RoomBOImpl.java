@@ -49,4 +49,18 @@ public class RoomBOImpl implements RoomBO {
         ));
     }
 
+    @Override
+    public RoomDTO getRoom(String rid) {
+        Room room = roomDAO.getItem(rid);
+        if (room!=null){
+            return new RoomDTO(
+                    room.getId(),
+                    room.getType(),
+                    room.getQty(),
+                    room.getKey_money()
+            );
+        }
+        return null;
+    }
+
 }

@@ -12,4 +12,6 @@ public interface RoomBO extends SuperBo {
     boolean saveRoom(RoomDTO roomDTO);
 
     boolean updateRoom(RoomDTO roomDTO);
+
+    RoomDTO getRoom(String rid);
 }

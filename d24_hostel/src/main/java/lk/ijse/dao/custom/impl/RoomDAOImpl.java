@@ -57,6 +57,11 @@ public class RoomDAOImpl implements RoomDAO {
 
     @Override
     public Room getItem(String id) {
-        return null;
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            Transaction transaction = session.beginTransaction();
+            Room room = session.get(Room.class, id);
+            transaction.commit();
+            return room;
+        }
     }
 }

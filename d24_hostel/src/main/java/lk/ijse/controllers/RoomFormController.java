@@ -146,7 +146,25 @@ public class RoomFormController {
 
     @FXML
     void searchBtnOnCtion(ActionEvent event) {
+        String rid=searchTxt.getText();
+        RoomDTO roomDTO=roomBO.getRoom(rid);
+        if (roomDTO!=null){
+            svBtn.setDisable(true);
+            upBtn.setDisable(false);
+            deleteBtn.setDisable(false);
+            roomIdTxt.setDisable(true);
+            roomTypeTxt.setDisable(false);
+            qtyTxt.setDisable(false);
+            keyMoneyTxt.setDisable(false);
 
+            roomIdTxt.setText(roomDTO.getId());
+            roomTypeTxt.setText(roomDTO.getType());
+            qtyTxt.setText(String.valueOf(roomDTO.getQty()));
+            keyMoneyTxt.setText(roomDTO.getKeyMoney());
+        }else {
+            new CustomAlert(Alert.AlertType.ERROR,"Error ","Invalid","Invalid Room id !").show();
+        }
+        searchTxt.clear();
     }
 
     @FXML
