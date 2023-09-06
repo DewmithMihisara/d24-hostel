@@ -1,10 +1,14 @@
 package lk.ijse.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
+import lk.ijse.dto.RoomDTO;
+import lk.ijse.dto.tm.RoomTM;
 
 public class ReservationFormController {
 
@@ -115,6 +119,20 @@ public class ReservationFormController {
     void upBtnOnAction(ActionEvent event) {
 
     }
-
-
+    @FXML
+    void initialize(){
+        fillTable();
+    }
+    private void fillTable() {
+//        ObservableList<RoomTM> roomTMS = FXCollections.observableArrayList();
+//        for (RoomDTO roomDTO : roomBO.getAll()) {
+//            roomTMS.add(new RoomTM(
+//                    roomDTO.getId(),
+//                    roomDTO.getType(),
+//                    roomDTO.getQty(),
+//                    roomDTO.getKeyMoney())
+//            );
+//        }
+//        rmTbl.setItems(roomTMS);
+    }
 }
