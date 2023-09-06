@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import lk.ijse.configaration.SessionFactoryConfig;
 import lk.ijse.controllers.util.Navigation;
 import lk.ijse.controllers.util.Rout;
 
@@ -32,6 +33,11 @@ public class WelcomeFormController implements Initializable {
     }
 
     private void init() {
+        Thread printThread = new Thread(() -> {
+            SessionFactoryConfig.getInstance().getSession();
+        });
+        printThread.start();
+
         Timeline timeline = new Timeline();
 
         KeyFrame keyFrame1 = new KeyFrame(Duration.millis(2500), actionEvent -> {

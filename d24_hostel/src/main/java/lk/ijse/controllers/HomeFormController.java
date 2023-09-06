@@ -11,10 +11,20 @@ import java.io.IOException;
 public class HomeFormController {
     @FXML
     private AnchorPane setingPane;
+    private static int round=0;
     @FXML
     void setingBtn(ActionEvent event) {
         try {
-            Navigation.navigation(Rout.SETTINGS,setingPane);
+            switch (round) {
+                case 0 -> {
+                    Navigation.navigation(Rout.SETTINGS, setingPane);
+                    round = 1;
+                }
+                case 1 -> {
+                    setingPane.getChildren().clear();
+                    round = 0;
+                }
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
