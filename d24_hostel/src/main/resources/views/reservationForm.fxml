@@ -57,12 +57,13 @@
       </Text>
       <TableView fx:id="resTbl" layoutX="79.0" layoutY="514.0" prefHeight="444.0" prefWidth="959.0" stylesheets="@../styles/tblStyle.css">
          <columns>
-            <TableColumn fx:id="reIdColm" minWidth="0.0" prefWidth="135.7425537109375" text="Reservation ID" />
-            <TableColumn fx:id="stIdColm" prefWidth="116.0" text="Student ID" />
-            <TableColumn fx:id="rmColm" prefWidth="122.0" text="Room ID" />
-            <TableColumn fx:id="stNameColm" prefWidth="212.0" text="Student Name" />
-            <TableColumn fx:id="kyMoneyColm" prefWidth="197.0" text="Key Money" />
-            <TableColumn fx:id="stsColm" prefWidth="174.0" text="Status" />
+            <TableColumn fx:id="reIdColm" minWidth="0.0" prefWidth="105.0" text="Reservation ID" />
+            <TableColumn fx:id="stIdColm" prefWidth="105.0" text="Student ID" />
+            <TableColumn fx:id="rmColm" prefWidth="105.0" text="Room ID" />
+            <TableColumn fx:id="stNameColm" prefWidth="200.0" text="Student Name" />
+            <TableColumn fx:id="dateColm" prefWidth="190.0" text="Date" />
+            <TableColumn fx:id="kyMoneyColm" prefWidth="140.0" text="Key Money" />
+            <TableColumn fx:id="stsColm" prefWidth="113.0" text="Status" />
          </columns>
       </TableView>
       <ComboBox fx:id="stsCmb" layoutX="803.0" layoutY="266.0" prefHeight="25.0" prefWidth="222.0" />

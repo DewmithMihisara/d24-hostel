@@ -12,8 +12,12 @@ import lk.ijse.dto.tm.RoomTM;
 
 public class ReservationFormController {
 
+
     @FXML
     private Button addBtn;
+
+    @FXML
+    private TableColumn<?, ?> dateColm;
 
     @FXML
     private Button deleteBtn;
