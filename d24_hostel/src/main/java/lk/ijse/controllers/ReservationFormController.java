@@ -7,8 +7,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
-import lk.ijse.dto.RoomDTO;
-import lk.ijse.dto.tm.RoomTM;
+import lk.ijse.bo.BoFactory;
+import lk.ijse.bo.custom.ReservationBO;
+import lk.ijse.dto.ReservationDTO;
+import lk.ijse.dto.tm.ReservationTM;
 
 public class ReservationFormController {
 
@@ -41,7 +43,7 @@ public class ReservationFormController {
     private TableColumn<?, ?> reIdColm;
 
     @FXML
-    private TableView<?> resTbl;
+    private TableView<ReservationTM> resTbl;
 
     @FXML
     private TableColumn<?, ?> rmColm;
@@ -78,6 +80,7 @@ public class ReservationFormController {
 
     @FXML
     private Button upBtn;
+    private final ReservationBO reservationBO = BoFactory.getInstance().getBo(BoFactory.BOTypes.RESERVATION);
 
     @FXML
     void addNewBtnOnAction(ActionEvent event) {
@@ -128,15 +131,18 @@ public class ReservationFormController {
         fillTable();
     }
     private void fillTable() {
-//        ObservableList<RoomTM> roomTMS = FXCollections.observableArrayList();
-//        for (RoomDTO roomDTO : roomBO.getAll()) {
-//            roomTMS.add(new RoomTM(
-//                    roomDTO.getId(),
-//                    roomDTO.getType(),
-//                    roomDTO.getQty(),
-//                    roomDTO.getKeyMoney())
-//            );
-//        }
-//        rmTbl.setItems(roomTMS);
+        ObservableList<ReservationTM> reservationTMS = FXCollections.observableArrayList();
+        for (ReservationDTO reservationDTO : reservationBO.getAllReservation()) {
+            reservationTMS.add(new ReservationTM(
+                    reservationDTO.getResId(),
+                    reservationDTO.getRoomId(),
+                    reservationDTO.getStdId(),
+                    reservationDTO.getStdNameTxt(),
+                    reservationDTO.getDate(),
+                    reservationDTO.getKeyMoney(),
+                    reservationDTO.getSts()
+                    ));
+        }
+        resTbl.setItems(reservationTMS);
     }
 }

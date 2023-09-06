@@ -1,5 +1,7 @@
 package lk.ijse.dto.tm;
 
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -10,7 +12,7 @@ public class ReservationTM {
     private String resId;
     private String roomId;
     private String stdId;
-    private String stdNameTxt;
+    private String stdName;
     private Date date;
     private String keyMoney;
     private String sts;
