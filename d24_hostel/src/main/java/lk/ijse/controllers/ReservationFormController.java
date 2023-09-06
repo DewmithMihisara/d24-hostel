@@ -2,19 +2,32 @@ package lk.ijse.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 
 public class ReservationFormController {
 
     @FXML
-    private TableColumn<?, ?> kyMoneyColm;
+    private Button addBtn;
 
     @FXML
-    private Text kyMoneyTxt;
+    private Button deleteBtn;
+
+    @FXML
+    private ComboBox<?> idCmb;
+
+    @FXML
+    private Line idLine;
+
+    @FXML
+    private TextField idTxt;
+
+    @FXML
+    private Text kMnyTxt;
+
+    @FXML
+    private TableColumn<?, ?> kyMoneyColm;
 
     @FXML
     private TableColumn<?, ?> reIdColm;
@@ -23,34 +36,22 @@ public class ReservationFormController {
     private TableView<?> resTbl;
 
     @FXML
-    private Text rewsIdTxt;
-
-    @FXML
     private TableColumn<?, ?> rmColm;
 
     @FXML
-    private Line rmIdLine;
+    private ComboBox<?> rmIdCmb;
 
     @FXML
     private Text rmTypeTxt;
 
     @FXML
+    private TextField roomIdTxt;
+
+    @FXML
     private TextField searchTxt;
 
     @FXML
-    private TextField searchTxt1;
-
-    @FXML
-    private TextField searchTxt11;
-
-    @FXML
-    private TextField searchTxt111;
-
-    @FXML
     private TableColumn<?, ?> stIdColm;
-
-    @FXML
-    private Line stIdLine;
 
     @FXML
     private TableColumn<?, ?> stNameColm;
@@ -59,10 +60,39 @@ public class ReservationFormController {
     private Text stNameTxt;
 
     @FXML
-    private Line stsLine;
+    private ComboBox<?> stsCmb;
+
+    @FXML
+    private TableColumn<?, ?> stsColm;
+
+    @FXML
+    private Button svBtn;
+
+    @FXML
+    private Button upBtn;
+
+    @FXML
+    void addNewBtnOnAction(ActionEvent event) {
+
+    }
 
     @FXML
     void deleteBtnOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void idCmbOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void rmIdCmbOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void roomIdTxtOnAction(ActionEvent event) {
 
     }
 
@@ -72,13 +102,19 @@ public class ReservationFormController {
     }
 
     @FXML
-    void svBtnOAction(ActionEvent event) {
+    void searchTxtOnAction(ActionEvent event) {
 
     }
 
     @FXML
-    void updateBtnOnAction(ActionEvent event) {
+    void svBtnOnAction(ActionEvent event) {
 
     }
+
+    @FXML
+    void upBtnOnAction(ActionEvent event) {
+
+    }
+
 
 }
