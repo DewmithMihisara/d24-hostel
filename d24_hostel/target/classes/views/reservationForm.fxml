@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -19,12 +20,12 @@
             <Image url="@../assets/reservation.png" />
          </image>
       </ImageView>
-      <TextField fx:id="searchTxt" layoutX="659.0" layoutY="58.0" prefHeight="45.0" prefWidth="368.0" style="-fx-background-color: tranceparent;">
+      <TextField fx:id="searchTxt" layoutX="659.0" layoutY="58.0" onAction="#searchTxtOnAction" prefHeight="45.0" prefWidth="368.0" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <Button layoutX="606.0" layoutY="58.0" mnemonicParsing="false" onAction="#searchBtnOnAction" prefHeight="45.0" prefWidth="53.0" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css">
+      <Button fx:id="searchBtn" layoutX="606.0" layoutY="58.0" mnemonicParsing="false" onAction="#searchBtnOnAction" prefHeight="45.0" prefWidth="53.0" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -33,30 +34,12 @@
             </ImageView>
          </graphic>
       </Button>
-      <Line fx:id="stIdLine" endX="22.0" layoutX="323.0" layoutY="286.0" scaleY="2.0" startX="-120.0" />
-      <Line fx:id="rmIdLine" endX="22.0" layoutX="624.0" layoutY="286.0" scaleY="2.0" startX="-120.0" />
-      <Line fx:id="stsLine" endX="22.0" layoutX="1004.0" layoutY="286.0" scaleY="2.0" startX="-200.0" AnchorPane.rightAnchor="68.5" />
-      <DatePicker layoutX="727.0" layoutY="187.0" prefHeight="25.0" prefWidth="296.0" style="-fx-background-color: tranceparent;" AnchorPane.rightAnchor="68.572" />
-      <TextField fx:id="searchTxt1" layoutX="203.0" layoutY="239.0" prefHeight="45.0" prefWidth="143.0" style="-fx-background-color: tranceparent;">
+      <DatePicker fx:id="dtPicketr" layoutX="727.0" layoutY="187.0" prefHeight="25.0" prefWidth="296.0" style="-fx-background-color: tranceparent;" AnchorPane.rightAnchor="68.572" />
+      <TextField fx:id="roomIdTxt" layoutX="504.0" layoutY="239.0" onAction="#roomIdTxtOnAction" prefHeight="45.0" prefWidth="143.0" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="searchTxt11" layoutX="504.0" layoutY="239.0" prefHeight="45.0" prefWidth="143.0" style="-fx-background-color: tranceparent;">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="searchTxt111" layoutX="804.0" layoutY="239.0" prefHeight="45.0" prefWidth="223.0" style="-fx-background-color: tranceparent;">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </TextField>
-      <Text fx:id="rewsIdTxt" layoutX="116.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
       <Text fx:id="stNameTxt" layoutX="245.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="24.0" />
@@ -67,22 +50,35 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fx:id="kyMoneyTxt" layoutX="210.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="kMnyTxt" layoutX="210.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Button layoutX="876.0" layoutY="450.0" mnemonicParsing="false" onAction="#deleteBtnOnAction" prefHeight="29.0" prefWidth="150.0" stylesheets="@../styles/style.css" text="Delete" />
-      <Button layoutX="710.0" layoutY="450.0" mnemonicParsing="false" onAction="#updateBtnOnAction" prefHeight="29.0" prefWidth="150.0" stylesheets="@../styles/style.css" text="Update" />
-      <Button layoutX="542.0" layoutY="450.0" mnemonicParsing="false" onAction="#svBtnOAction" prefHeight="29.0" prefWidth="150.0" stylesheets="@../styles/style.css" text="Save" />
       <TableView fx:id="resTbl" layoutX="79.0" layoutY="514.0" prefHeight="444.0" prefWidth="959.0" stylesheets="@../styles/tblStyle.css">
          <columns>
-            <TableColumn fx:id="reIdColm" minWidth="0.0" prefWidth="135.7425537109375" text="Reservation ID" />
-            <TableColumn fx:id="stIdColm" prefWidth="159.5205841064453" text="Student ID" />
-            <TableColumn fx:id="rmColm" prefWidth="167.3564453125" text="Room ID" />
-            <TableColumn fx:id="stNameColm" prefWidth="241.67535400390625" text="Student Name" />
-            <TableColumn fx:id="kyMoneyColm" prefWidth="250.32464599609375" text="Key Money" />
+            <TableColumn fx:id="reIdColm" minWidth="0.0" prefWidth="100.0" text="Reservation ID" />
+            <TableColumn fx:id="stIdColm" prefWidth="100.0" text="Student ID" />
+            <TableColumn fx:id="rmColm" prefWidth="100.0" text="Room ID" />
+            <TableColumn fx:id="stNameColm" prefWidth="189.0" text="Student Name" />
+            <TableColumn fx:id="kyMoneyColm" prefWidth="115.0" text="Key Money" />
+            <TableColumn fx:id="dateColm" prefWidth="120.0" text="Date" />
+            <TableColumn fx:id="epireDtColm" prefWidth="127.0" text="Expire Date" />
+            <TableColumn fx:id="stsColm" prefWidth="107.0" text="Status" />
          </columns>
       </TableView>
+      <ComboBox fx:id="stsCmb" layoutX="803.0" layoutY="266.0" prefHeight="25.0" prefWidth="222.0" />
+      <Line fx:id="idLine" endX="22.0" layoutX="232.0" layoutY="212.0" scaleY="2.0" startX="-120.0" />
+      <TextField fx:id="idTxt" layoutX="112.0" layoutY="165.0" prefHeight="45.0" prefWidth="143.0" style="-fx-background-color: tranceparent;">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <Button fx:id="deleteBtn" layoutX="938.0" layoutY="454.0" mnemonicParsing="false" onAction="#deleteBtnOnAction" prefHeight="37.0" prefWidth="100.0" stylesheets="@../styles/style.css" text="Delete" />
+      <Button fx:id="upBtn" layoutX="829.0" layoutY="454.0" mnemonicParsing="false" onAction="#upBtnOnAction" prefHeight="29.0" prefWidth="100.0" stylesheets="@../styles/style.css" text="Update" />
+      <Button fx:id="svBtn" layoutX="720.0" layoutY="454.0" mnemonicParsing="false" onAction="#svBtnOnAction" prefHeight="29.0" prefWidth="100.0" stylesheets="@../styles/style.css" text="Save" />
+      <Button fx:id="addBtn" layoutX="658.0" layoutY="454.0" mnemonicParsing="false" onAction="#addNewBtnOnAction" prefHeight="37.0" prefWidth="53.0" stylesheets="@../styles/style.css" text="+" />
+      <ComboBox fx:id="rmIdCmb" layoutX="494.0" layoutY="266.0" onAction="#rmIdCmbOnAction" prefHeight="25.0" prefWidth="200.0" />
+      <ComboBox fx:id="idCmb" layoutX="197.0" layoutY="266.0" onAction="#idCmbOnAction" prefHeight="25.0" prefWidth="173.0" />
    </children>
 </AnchorPane>

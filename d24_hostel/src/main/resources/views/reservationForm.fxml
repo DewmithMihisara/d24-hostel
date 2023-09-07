@@ -25,7 +25,7 @@
             <Font size="24.0" />
          </font>
       </TextField>
-      <Button layoutX="606.0" layoutY="58.0" mnemonicParsing="false" onAction="#searchBtnOnAction" prefHeight="45.0" prefWidth="53.0" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css">
+      <Button fx:id="searchBtn" layoutX="606.0" layoutY="58.0" mnemonicParsing="false" onAction="#searchBtnOnAction" prefHeight="45.0" prefWidth="53.0" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -34,7 +34,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <DatePicker layoutX="727.0" layoutY="187.0" prefHeight="25.0" prefWidth="296.0" style="-fx-background-color: tranceparent;" AnchorPane.rightAnchor="68.572" />
+      <DatePicker fx:id="dtPicketr" layoutX="727.0" layoutY="187.0" prefHeight="25.0" prefWidth="296.0" style="-fx-background-color: tranceparent;" AnchorPane.rightAnchor="68.572" />
       <TextField fx:id="roomIdTxt" layoutX="504.0" layoutY="239.0" onAction="#roomIdTxtOnAction" prefHeight="45.0" prefWidth="143.0" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="24.0" />
@@ -57,13 +57,14 @@
       </Text>
       <TableView fx:id="resTbl" layoutX="79.0" layoutY="514.0" prefHeight="444.0" prefWidth="959.0" stylesheets="@../styles/tblStyle.css">
          <columns>
-            <TableColumn fx:id="reIdColm" minWidth="0.0" prefWidth="105.0" text="Reservation ID" />
-            <TableColumn fx:id="stIdColm" prefWidth="105.0" text="Student ID" />
-            <TableColumn fx:id="rmColm" prefWidth="105.0" text="Room ID" />
-            <TableColumn fx:id="stNameColm" prefWidth="200.0" text="Student Name" />
-            <TableColumn fx:id="dateColm" prefWidth="190.0" text="Date" />
-            <TableColumn fx:id="kyMoneyColm" prefWidth="140.0" text="Key Money" />
-            <TableColumn fx:id="stsColm" prefWidth="113.0" text="Status" />
+            <TableColumn fx:id="reIdColm" minWidth="0.0" prefWidth="100.0" text="Reservation ID" />
+            <TableColumn fx:id="stIdColm" prefWidth="100.0" text="Student ID" />
+            <TableColumn fx:id="rmColm" prefWidth="100.0" text="Room ID" />
+            <TableColumn fx:id="stNameColm" prefWidth="189.0" text="Student Name" />
+            <TableColumn fx:id="kyMoneyColm" prefWidth="115.0" text="Key Money" />
+            <TableColumn fx:id="dateColm" prefWidth="120.0" text="Date" />
+            <TableColumn fx:id="epireDtColm" prefWidth="127.0" text="Expire Date" />
+            <TableColumn fx:id="stsColm" prefWidth="107.0" text="Status" />
          </columns>
       </TableView>
       <ComboBox fx:id="stsCmb" layoutX="803.0" layoutY="266.0" prefHeight="25.0" prefWidth="222.0" />

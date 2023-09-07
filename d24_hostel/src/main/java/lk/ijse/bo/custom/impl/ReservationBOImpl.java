@@ -2,21 +2,25 @@ package lk.ijse.bo.custom.impl;
 
 import lk.ijse.bo.custom.ReservationBO;
 import lk.ijse.dao.DAOFactory;
+import lk.ijse.dao.custom.ReservationDAO;
 import lk.ijse.dao.custom.RoomDAO;
 import lk.ijse.dao.custom.StudentDAO;
 import lk.ijse.dto.ReservationDTO;
 import lk.ijse.dto.RoomDTO;
 import lk.ijse.dto.StudentDTO;
+import lk.ijse.entity.Reservation;
 import lk.ijse.entity.Room;
 import lk.ijse.entity.Student;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ReservationBOImpl implements ReservationBO {
     RoomDAO roomDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ROOM);
     StudentDAO studentDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.STUDENT);
+    ReservationDAO reservationDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.RESERVATION);
 
     @Override
     public List<ReservationDTO> getAllReservation() {
@@ -53,7 +57,7 @@ public class ReservationBOImpl implements ReservationBO {
 
     @Override
     public StudentDTO getStd(String value) {
-        Student student=studentDAO.getItem(value);
+        Student student = studentDAO.getItem(value);
         return new StudentDTO(
                 student.getId(),
                 student.getName(),
@@ -62,5 +66,23 @@ public class ReservationBOImpl implements ReservationBO {
                 student.getDob(),
                 student.getGender()
         );
+    }
+
+    @Override
+    public boolean saveRes(ReservationDTO reservationDTO) {
+        Student student = studentDAO.getItem(reservationDTO.getStdId());
+        Room room = roomDAO.getItem(reservationDTO.getRoomId());
+        room.setQty(room.getQty() - 1);
+
+        if (roomDAO.update(room)) {
+            return reservationDAO.save(new Reservation(
+                    reservationDTO.getResId(),
+                    reservationDTO.getDate(),
+                    reservationDTO.getSts(),
+                    student,
+                    room
+            ));
+        }
+        return false;
     }
 }

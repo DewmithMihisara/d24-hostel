@@ -17,4 +17,6 @@ public interface ReservationBO extends SuperBo {
     RoomDTO getRoom(String value);
 
     StudentDTO getStd(String value);
+
+    boolean saveRes(ReservationDTO reservationDTO);
 }

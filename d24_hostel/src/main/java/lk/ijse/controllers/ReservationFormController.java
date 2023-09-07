@@ -9,10 +9,13 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.custom.ReservationBO;
+import lk.ijse.controllers.util.CustomAlert;
+import lk.ijse.dto.ReservationDTO;
 import lk.ijse.dto.RoomDTO;
 import lk.ijse.dto.StudentDTO;
 import lk.ijse.dto.tm.ReservationTM;
 
+import java.sql.Date;
 import java.util.List;
 
 public class ReservationFormController {
@@ -52,7 +55,14 @@ public class ReservationFormController {
     private TableColumn<?, ?> rmColm;
 
     @FXML
+    private DatePicker dtPicketr;
+    @FXML
+    private Button searchBtn;
+    @FXML
     private ComboBox<String> rmIdCmb;
+    @FXML
+    private TableColumn<?, ?> epireDtColm;
+
 
     @FXML
     private Text rmTypeTxt;
@@ -125,7 +135,12 @@ public class ReservationFormController {
 
     @FXML
     void svBtnOnAction(ActionEvent event) {
-
+        if (reservationBO.saveRes(new ReservationDTO(idTxt.getText(), Date.valueOf(dtPicketr.getValue()),idCmb.getValue(),rmIdCmb.getValue(),stsCmb.getValue(),stNameTxt.getText(),rmTypeTxt.getText(),kMnyTxt.getText()))) {
+            new CustomAlert(Alert.AlertType.CONFIRMATION, "Save ", "Saved !", "Reservation Update successful !").show();
+//            fillTable();
+        }else {
+            new CustomAlert(Alert.AlertType.ERROR,"Update ","Not Update !","Update not successful !").show();
+        }
     }
 
     @FXML
