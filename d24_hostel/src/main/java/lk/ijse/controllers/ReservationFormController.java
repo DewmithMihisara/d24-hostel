@@ -9,8 +9,11 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.custom.ReservationBO;
-import lk.ijse.dto.ReservationDTO;
+import lk.ijse.dto.RoomDTO;
+import lk.ijse.dto.StudentDTO;
 import lk.ijse.dto.tm.ReservationTM;
+
+import java.util.List;
 
 public class ReservationFormController {
 
@@ -25,7 +28,7 @@ public class ReservationFormController {
     private Button deleteBtn;
 
     @FXML
-    private ComboBox<?> idCmb;
+    private ComboBox<String> idCmb;
 
     @FXML
     private Line idLine;
@@ -49,7 +52,7 @@ public class ReservationFormController {
     private TableColumn<?, ?> rmColm;
 
     @FXML
-    private ComboBox<?> rmIdCmb;
+    private ComboBox<String> rmIdCmb;
 
     @FXML
     private Text rmTypeTxt;
@@ -70,7 +73,7 @@ public class ReservationFormController {
     private Text stNameTxt;
 
     @FXML
-    private ComboBox<?> stsCmb;
+    private ComboBox<String> stsCmb;
 
     @FXML
     private TableColumn<?, ?> stsColm;
@@ -94,12 +97,15 @@ public class ReservationFormController {
 
     @FXML
     void idCmbOnAction(ActionEvent event) {
-
+        StudentDTO studentDTO=reservationBO.getStd(idCmb.getValue());
+        stNameTxt.setText(studentDTO.getName());
     }
 
     @FXML
     void rmIdCmbOnAction(ActionEvent event) {
-
+        RoomDTO roomDTO = reservationBO.getRoom(rmIdCmb.getValue());
+        rmTypeTxt.setText(roomDTO.getType());
+        kMnyTxt.setText(roomDTO.getKeyMoney());
     }
 
     @FXML
@@ -129,20 +135,40 @@ public class ReservationFormController {
     @FXML
     void initialize(){
         fillTable();
+        setRoomIds();
+        setStdId();
+        setSts();
     }
+
+    private void setSts() {
+        stsCmb.getItems().setAll("Paid", "Not-Paid", "Pending");
+    }
+
+    private void setStdId() {
+        ObservableList<String> stdIdList = FXCollections.observableArrayList();
+        stdIdList.addAll(reservationBO.getStdId());
+        idCmb.setItems(stdIdList);
+    }
+
+    private void setRoomIds() {
+        ObservableList<String> roomIdList = FXCollections.observableArrayList();
+        roomIdList.addAll(reservationBO.getRoomIds());
+        rmIdCmb.setItems(roomIdList);
+    }
+
     private void fillTable() {
-        ObservableList<ReservationTM> reservationTMS = FXCollections.observableArrayList();
-        for (ReservationDTO reservationDTO : reservationBO.getAllReservation()) {
-            reservationTMS.add(new ReservationTM(
-                    reservationDTO.getResId(),
-                    reservationDTO.getRoomId(),
-                    reservationDTO.getStdId(),
-                    reservationDTO.getStdNameTxt(),
-                    reservationDTO.getDate(),
-                    reservationDTO.getKeyMoney(),
-                    reservationDTO.getSts()
-                    ));
-        }
-        resTbl.setItems(reservationTMS);
+//        ObservableList<ReservationTM> reservationTMS = FXCollections.observableArrayList();
+//        for (ReservationDTO reservationDTO : reservationBO.getAllReservation()) {
+//            reservationTMS.add(new ReservationTM(
+//                    reservationDTO.getResId(),
+//                    reservationDTO.getRoomId(),
+//                    reservationDTO.getStdId(),
+//                    reservationDTO.getStdNameTxt(),
+//                    reservationDTO.getDate(),
+//                    reservationDTO.getKeyMoney(),
+//                    reservationDTO.getSts()
+//                    ));
+//        }
+//        resTbl.setItems(reservationTMS);
     }
 }
