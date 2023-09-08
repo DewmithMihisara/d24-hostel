@@ -87,10 +87,11 @@ public class StdFormController {
 
     @FXML
     private Button upBtn;
-    private final StudentBO studentBO=BoFactory.getInstance().getBo(BoFactory.BOTypes.STUDENT);
+    private final StudentBO studentBO = BoFactory.getInstance().getBo(BoFactory.BOTypes.STUDENT);
     boolean id, name, gen, dob, contact, address;
+
     @FXML
-    void initialize(){
+    void initialize() {
         initUi();
         setCellValueFactory();
         fillTable();
@@ -120,7 +121,7 @@ public class StdFormController {
         addressColm.setCellValueFactory(new PropertyValueFactory<>("address"));
     }
 
-    private void initUi(){
+    private void initUi() {
         idTxt.clear();
         nameTxt.clear();
         genTxt.clear();
@@ -137,6 +138,7 @@ public class StdFormController {
         upBtn.setDisable(true);
         svBtn.setDisable(true);
     }
+
     @FXML
     void addNewBtnOnAction(ActionEvent event) {
         nameTxt.setDisable(false);
@@ -174,9 +176,9 @@ public class StdFormController {
 
     @FXML
     void searchBtnOnCtion(ActionEvent event) {
-        String sid=searchTxt.getText();
-        StudentDTO studentDTO=studentBO.getStudent(sid);
-        if (studentDTO!=null){
+        String sid = searchTxt.getText();
+        StudentDTO studentDTO = studentBO.getStudent(sid);
+        if (studentDTO != null) {
             svBtn.setDisable(true);
             upBtn.setDisable(false);
             deleteBtn.setDisable(false);
@@ -194,60 +196,71 @@ public class StdFormController {
             dobPicker.setValue(studentDTO.getDob().toLocalDate());
             contactTxt.setText(studentDTO.getContact());
             addressTxt.setText(studentDTO.getAddress());
-        }else {
-            new CustomAlert(Alert.AlertType.ERROR,"Error ","Invalid","Invalid student id !").show();
+        } else {
+            new CustomAlert(Alert.AlertType.ERROR, "Error ", "Invalid", "Invalid student id !").show();
         }
         searchTxt.clear();
     }
+
     @FXML
     void searchTxtOnAction(ActionEvent event) {
         searchBtn.fire();
     }
+
     @FXML
     void svBtnOnAction(ActionEvent event) {
-        validate();
-        if (studentBO.saveStd(new StudentDTO(idTxt.getText(),nameTxt.getText(),addressTxt.getText(),contactTxt.getText(),Date.valueOf(dobPicker.getValue()),genTxt.getText()))){
-            new CustomAlert(Alert.AlertType.CONFIRMATION,"Update ","Updated !","Student Update successful !").show();
-            fillTable();
-            initUi();
-        }else {
-            new CustomAlert(Alert.AlertType.ERROR,"Update ","Not Update !","Update not successful !").show();
+        if (validate()) {
+            if (studentBO.saveStd(new StudentDTO(idTxt.getText(), nameTxt.getText(), addressTxt.getText(), contactTxt.getText(), Date.valueOf(dobPicker.getValue()), genTxt.getText()))) {
+                new CustomAlert(Alert.AlertType.CONFIRMATION, "Update ", "Updated !", "Student Update successful !").show();
+                fillTable();
+                initUi();
+            } else {
+                new CustomAlert(Alert.AlertType.ERROR, "Update ", "Not Update !", "Update not successful !").show();
+            }
         }
     }
 
     @FXML
     void upBtnOnAction(ActionEvent event) {
-        validate();
-        if (studentBO.updateStd(new StudentDTO(idTxt.getText(),nameTxt.getText(),addressTxt.getText(),contactTxt.getText(),Date.valueOf(dobPicker.getValue()),genTxt.getText()))){
-            new CustomAlert(Alert.AlertType.CONFIRMATION,"Update ","Updated !","Student Update successful !").show();
-            fillTable();
-            initUi();
-        }else {
-            new CustomAlert(Alert.AlertType.ERROR,"Update ","Not Update !","Update not successful !").show();
+        if (validate()) {
+            if (studentBO.updateStd(new StudentDTO(idTxt.getText(), nameTxt.getText(), addressTxt.getText(), contactTxt.getText(), Date.valueOf(dobPicker.getValue()), genTxt.getText()))) {
+                new CustomAlert(Alert.AlertType.CONFIRMATION, "Update ", "Updated !", "Student Update successful !").show();
+                fillTable();
+                initUi();
+            } else {
+                new CustomAlert(Alert.AlertType.ERROR, "Update ", "Not Update !", "Update not successful !").show();
+            }
         }
     }
+
     @FXML
     void deleteBtnOnAction(ActionEvent event) {
-        if (studentBO.deleteStd(idTxt.getText())){
-            new CustomAlert(Alert.AlertType.CONFIRMATION,"Delete ","Deleted !","Student Deleted successful !").show();
+        if (studentBO.deleteStd(idTxt.getText())) {
+            new CustomAlert(Alert.AlertType.CONFIRMATION, "Delete ", "Deleted !", "Student Deleted successful !").show();
             fillTable();
             initUi();
-        }else {
-            new CustomAlert(Alert.AlertType.ERROR,"Delete ","Not Deleted !","Delete not successful !").show();
+        } else {
+            new CustomAlert(Alert.AlertType.ERROR, "Delete ", "Not Deleted !", "Delete not successful !").show();
         }
     }
-    private void validate() {
-        id=false;
-        name=false;
-        gen=false;
-        dob=false;
-        contact=false;
-        address=false;
-        id= Validation.txtValidation(idTxt,idLine);
-        name=Validation.txtValidation(nameTxt,nameLine);
-        gen=Validation.txtValidation(genTxt,genLine);
-        dob=Validation.dateValidation(dobPicker);
-        contact=Validation.txtValidation(contactTxt,contactLine);
-        address=Validation.txtValidation(addressTxt,addressLine);
+
+    private boolean validate() {
+        id = false;
+        name = false;
+        gen = false;
+        dob = false;
+        contact = false;
+        address = false;
+        id = Validation.txtValidation(idTxt, idLine);
+        name = Validation.txtValidation(nameTxt, nameLine);
+        gen = Validation.txtValidation(genTxt, genLine);
+        dob = Validation.dateValidation(dobPicker);
+        contact = Validation.txtValidation(contactTxt, contactLine);
+        address = Validation.txtValidation(addressTxt, addressLine);
+        contact = Validation.contactNumbValidation(contactTxt, contactLine);
+        if (id && name && gen && dob && contact && address) {
+            return true;
+        }
+        return false;
     }
 }

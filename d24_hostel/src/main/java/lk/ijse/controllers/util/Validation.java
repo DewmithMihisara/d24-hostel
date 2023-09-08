@@ -26,6 +26,15 @@ public class Validation {
         }
         return false;
     }
+    public static boolean contactNumbValidation(TextField txt, Line line) {
+        if (txt.getText().matches("[0-9+]+")) {
+            defaultLine(line);
+            return true;
+        } else {
+            shakeLine(line);
+        }
+        return false;
+    }
     public static void shakeLine(Line line){
         line.setStroke(Color.RED);
         shake=new Shake(line);
