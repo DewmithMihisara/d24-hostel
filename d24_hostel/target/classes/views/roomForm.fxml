@@ -41,7 +41,7 @@
             <Font size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="searchTxt" layoutX="660.0" layoutY="57.0" onAction="#searchTxtOnAction" prefHeight="45.0" prefWidth="368.0" style="-fx-background-color: tranceparent;">
+      <TextField fx:id="searchTxt" layoutX="660.0" layoutY="57.0" onAction="#searchTxtOnAction" prefHeight="45.0" prefWidth="368.0" promptText="Room ID" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="24.0" />
          </font>
