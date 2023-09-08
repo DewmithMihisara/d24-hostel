@@ -19,4 +19,10 @@ public interface ReservationBO extends SuperBo {
     StudentDTO getStd(String value);
 
     boolean saveRes(ReservationDTO reservationDTO);
+
+    boolean updateRes(ReservationDTO reservationDTO);
+
+    boolean deleteRes(String text);
+
+    ReservationDTO getResevertion(String rid);
 }

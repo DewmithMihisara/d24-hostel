@@ -1,8 +1,10 @@
 package lk.ijse.dao.custom.impl;
 
+import javafx.scene.control.Alert;
 import lk.ijse.configaration.SessionFactoryConfig;
 import lk.ijse.dao.custom.ReservationDAO;
 import lk.ijse.entity.Reservation;
+import lk.ijse.entity.Room;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -18,16 +20,34 @@ public class ReservationDAOImpl implements ReservationDAO {
             transaction.commit();
             return save != null;
         }
+
     }
 
     @Override
     public boolean update(Reservation dto) {
-        return false;
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.update(dto);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            return false;
+        }
+
     }
 
     @Override
     public boolean delete(String id) {
-        return false;
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            Transaction transaction = session.beginTransaction();
+            Reservation reservation = session.get(Reservation.class, id);
+            session.delete(reservation);
+            transaction.commit();
+            return true;
+        }catch (Exception exception){
+            return false;
+        }
     }
 
     @Override
@@ -37,6 +57,11 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public Reservation getItem(String id) {
-        return null;
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            Transaction transaction = session.beginTransaction();
+            Reservation reservation = session.get(Reservation.class, id);
+            transaction.commit();
+            return reservation;
+        }
     }
 }

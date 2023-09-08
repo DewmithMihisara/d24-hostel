@@ -15,7 +15,7 @@ public class Reservation {
     @Id
     @Column(name = "res_id",length = 50)
     private String id;
-    @Column(name = "res_date")
+    @Column(name = "res_date",columnDefinition = "date")
     private Date date;
     @Column(name = "res_status")
     private String status;

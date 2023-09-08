@@ -7,6 +7,7 @@ import lk.ijse.entity.Room;
 import lk.ijse.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -72,4 +73,5 @@ public class RoomDAOImpl implements RoomDAO {
             return room;
         }
     }
+
 }
