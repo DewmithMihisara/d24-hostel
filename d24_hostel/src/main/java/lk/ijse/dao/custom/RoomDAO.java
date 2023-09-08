@@ -5,4 +5,5 @@ import lk.ijse.entity.Room;
 import java.util.List;
 
 public interface RoomDAO extends CrudDAO<Room, String> {
+    String getNextId();
 }

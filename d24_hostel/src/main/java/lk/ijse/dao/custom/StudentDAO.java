@@ -5,4 +5,5 @@ import lk.ijse.dao.SuperDAO;
 import lk.ijse.entity.Student;
 
 public interface StudentDAO extends CrudDAO<Student, String> {
+    String getNextId();
 }

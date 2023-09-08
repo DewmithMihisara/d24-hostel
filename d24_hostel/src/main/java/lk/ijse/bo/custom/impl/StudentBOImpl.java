@@ -76,4 +76,11 @@ public class StudentBOImpl implements StudentBO {
     public boolean deleteStd(String text) {
         return studentDAO.delete(text);
     }
+
+    @Override
+    public String getNextId() {
+        String id = studentDAO.getNextId();
+        Integer newId = Integer.parseInt(id.replace("ST", "")) + 1;
+        return String.format("ST%03d", newId);
+    }
 }

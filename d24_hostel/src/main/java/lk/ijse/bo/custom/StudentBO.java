@@ -15,4 +15,6 @@ public interface StudentBO extends SuperBo {
     StudentDTO getStudent(String sid);
 
     boolean deleteStd(String text);
+
+    String getNextId();
 }

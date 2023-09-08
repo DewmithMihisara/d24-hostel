@@ -205,12 +205,14 @@ public class RoomFormController {
     }
     @FXML
     void addNewBtnOnAction(ActionEvent event) {
-        roomIdTxt.setDisable(false);
         roomTypeTxt.setDisable(false);
         qtyTxt.setDisable(false);
         keyMoneyTxt.setDisable(false);
         svBtn.setDisable(false);
-        idTxt.requestFocus();
+        setRmId();
+    }
+    private void setRmId() {
+        roomIdTxt.setText(roomBO.getNextId());
     }
     private void validation() {
         id=false;

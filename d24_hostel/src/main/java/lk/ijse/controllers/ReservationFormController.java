@@ -108,6 +108,7 @@ public class ReservationFormController {
         rmIdCmb.setDisable(false);
         stsCmb.setDisable(false);
         svBtn.setDisable(false);
+        setResId();
     }
 
     @FXML
@@ -221,7 +222,6 @@ public class ReservationFormController {
         setSts();
         initUi();
         setValueFactory();
-        setResId();
     }
 
     private void setResId() {

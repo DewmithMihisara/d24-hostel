@@ -74,4 +74,16 @@ public class RoomDAOImpl implements RoomDAO {
         }
     }
 
+    @Override
+    public String getNextId() {
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            String newId = "RM000";
+            Transaction transaction = session.beginTransaction();
+            List list = session.createNativeQuery("select room_id from room order by room_id desc limit 1").list();
+            if (!list.isEmpty()) newId = (String) list.get(0);
+            transaction.commit();
+            session.close();
+            return newId;
+        }
+    }
 }

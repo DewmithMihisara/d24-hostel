@@ -68,4 +68,11 @@ public class RoomBOImpl implements RoomBO {
         return roomDAO.delete(text);
     }
 
+    @Override
+    public String getNextId() {
+        String id = roomDAO.getNextId();
+        Integer newId = Integer.parseInt(id.replace("RM", "")) + 1;
+        return String.format("RM%03d", newId);
+    }
+
 }

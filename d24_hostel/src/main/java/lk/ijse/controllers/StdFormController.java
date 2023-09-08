@@ -139,14 +139,17 @@ public class StdFormController {
     }
     @FXML
     void addNewBtnOnAction(ActionEvent event) {
-        idTxt.setDisable(false);
         nameTxt.setDisable(false);
         genTxt.setDisable(false);
         dobPicker.setDisable(false);
         contactTxt.setDisable(false);
         addressTxt.setDisable(false);
-        idTxt.requestFocus();
         svBtn.setDisable(false);
+        generateNewID();
+    }
+
+    private void generateNewID() {
+        idTxt.setText(studentBO.getNextId());
     }
 
     @FXML

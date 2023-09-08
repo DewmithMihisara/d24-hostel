@@ -72,4 +72,17 @@ public class StudentDAOImpl implements StudentDAO {
             return item;
         }
     }
+
+    @Override
+    public String getNextId() {
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            String newId = "ST000";
+            Transaction transaction = session.beginTransaction();
+            List list = session.createNativeQuery("select student_id from student order by student_id desc limit 1").list();
+            if (!list.isEmpty()) newId = (String) list.get(0);
+            transaction.commit();
+            session.close();
+            return newId;
+        }
+    }
 }
