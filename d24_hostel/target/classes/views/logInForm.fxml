@@ -9,31 +9,31 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controllers.LogInFormController">
+<AnchorPane fx:id="root" prefHeight="870.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controllers.LogInFormController">
    <children>
-      <ImageView fitHeight="1024.0" fitWidth="1440.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="870.0" fitWidth="1440.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../assets/Log_in.png" />
+            <Image url="@../assets/formBack/Log_in.png" />
          </image>
       </ImageView>
-      <Button fx:id="loginBtn" layoutX="285.0" layoutY="690.0" mnemonicParsing="false" onAction="#loginBtnOnAction" prefHeight="53.0" prefWidth="434.01" stylesheets="@../styles/style.css" text="Log In" textFill="WHITE" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="686.0">
+      <Button fx:id="loginBtn" layoutX="109.0" layoutY="556.0" mnemonicParsing="false" onAction="#loginBtnOnAction" prefHeight="53.0" prefWidth="434.01" stylesheets="@../styles/style.css" text="Log In" textFill="WHITE" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="556.0">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Line fx:id="pwLine" endX="334.1544189453125" endY="1.32598876953125" layoutX="210.0" layoutY="689.0" scaleY="2.0" startX="-100.0" startY="1.32598876953125" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="599.0" />
-      <Line fx:id="usrNameLine" endX="334.1544189453125" endY="1.32598876953125" layoutX="220.0" layoutY="699.0" scaleY="2.0" startX="-100.0" startY="1.32598876953125" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="507.5" />
-      <TextField fx:id="userNameTxt" layoutX="148.0" layoutY="462.0" onAction="#userNameTxtOnAction" prefHeight="45.0" prefWidth="396.0" promptText="User Name" style="-fx-background-color: tranceparent;">
+      <Line fx:id="pwLine" endX="334.1544189453125" endY="1.32598876953125" layoutX="209.5" layoutY="484.17401123046875" scaleY="2.0" startX="-100.0" startY="1.32598876953125" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="485.0" />
+      <Line fx:id="usrNameLine" endX="334.1544189453125" endY="1.32598876953125" layoutX="209.0" layoutY="394.0" scaleY="2.0" startX="-100.0" startY="1.32598876953125" AnchorPane.leftAnchor="108.5" AnchorPane.topAnchor="394.82598876953125" />
+      <TextField fx:id="userNameTxt" layoutX="149.0" layoutY="345.0" onAction="#userNameTxtOnAction" prefHeight="45.0" prefWidth="396.0" promptText="User Name" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="21.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="pwTxt" layoutX="148.0" layoutY="553.0" onAction="#pwTxtOnAction" prefHeight="45.0" prefWidth="345.0" promptText="Password" style="-fx-background-color: tranceparent;">
+      <PasswordField fx:id="pwTxt" layoutX="148.0" layoutY="437.0" onAction="#pwTxtOnAction" prefHeight="45.0" prefWidth="345.0" promptText="Password" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="21.0" />
          </font>
       </PasswordField>
-      <Button fx:id="pwViewBtn" layoutX="494.0" layoutY="553.0" mnemonicParsing="false" onAction="#pwViewBtnOnAction" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css">
+      <Button fx:id="pwViewBtn" layoutX="494.0" layoutY="436.0" mnemonicParsing="false" onAction="#pwViewBtnOnAction" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css">
          <graphic>
             <ImageView fx:id="viewImg" fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -42,7 +42,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="signUpBtn" layoutX="391.0" layoutY="780.0" mnemonicParsing="false" onAction="#signUpBtnOnAction" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css" text="Sign up" textFill="#090963">
+      <Button fx:id="signUpBtn" layoutX="391.0" layoutY="667.0" mnemonicParsing="false" onAction="#signUpBtnOnAction" style="-fx-background-color: tranceparent;" stylesheets="@../styles/search.css" text="Sign up" textFill="#090963">
          <font>
             <Font size="16.0" />
          </font>
