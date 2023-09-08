@@ -8,6 +8,4 @@ import java.util.List;
 
 public interface QueryDAO extends SuperDAO {
     List<ReservationDTO> getAllReservation();
-
-    Reservation getItem(String rid);
 }

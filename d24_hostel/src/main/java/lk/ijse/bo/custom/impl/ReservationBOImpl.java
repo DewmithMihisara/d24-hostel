@@ -101,21 +101,4 @@ public class ReservationBOImpl implements ReservationBO {
         return reservationDAO.delete(text);
     }
 
-    @Override
-    public ReservationDTO getResevertion(String rid) {
-        Reservation reservation = queryDAO.getItem(rid);
-        if (reservation!=null){
-            return new ReservationDTO(
-                    reservation.getId(),
-                    reservation.getDate(),
-                    reservation.getStudent().getId(),
-                    reservation.getRoom().getId(),
-                    reservation.getStatus(),
-                    reservation.getStudent().getName(),
-                    reservation.getRoom().getType(),
-                    reservation.getRoom().getKey_money()
-            );
-        }
-        return null;
-    }
 }

@@ -142,20 +142,35 @@ public class ReservationFormController {
     @FXML
     void searchBtnOnAction(ActionEvent event) {
         String rid = searchTxt.getText();
-        ReservationDTO reservationDTO = reservationBO.getResevertion(rid);
-        if (reservationDTO != null) {
+        ReservationDTO res = null;
+        for (ReservationDTO reservationDTO:reservationBO.getAllReservation()){
+            if (reservationDTO.getResId().equals(rid)){
+                res=new ReservationDTO(
+                        reservationDTO.getResId(),
+                        reservationDTO.getDate(),
+                        reservationDTO.getStdId(),
+                        reservationDTO.getRoomId(),
+                        reservationDTO.getSts(),
+                        reservationDTO.getStdNameTxt(),
+                        reservationDTO.getRoomType(),
+                        reservationDTO.getKeyMoney()
+                );
+            }
+        }
+        if (res != null) {
             svBtn.setDisable(true);
             upBtn.setDisable(false);
             deleteBtn.setDisable(false);
-            stsCmb.setDisable(true);
-            idCmb.setDisable(true);
-            rmIdCmb.setDisable(true);
+            stsCmb.setDisable(false);
+            idCmb.setDisable(false);
+            rmIdCmb.setDisable(false);
+            dtPicketr.setDisable(false);
 
-            idCmb.getSelectionModel().select(getCmbIndex(idCmb, reservationDTO.getStdId()));
-            rmIdCmb.getSelectionModel().select(getCmbIndex(rmIdCmb, reservationDTO.getRoomId()));
-            stsCmb.getSelectionModel().select(getCmbIndex(stsCmb, reservationDTO.getSts()));
-            idTxt.setText(reservationDTO.getResId());
-            dtPicketr.setValue(reservationDTO.getDate().toLocalDate());
+            idCmb.getSelectionModel().select(getCmbIndex(idCmb, res.getStdId()));
+            rmIdCmb.getSelectionModel().select(getCmbIndex(rmIdCmb, res.getRoomId()));
+            stsCmb.getSelectionModel().select(getCmbIndex(stsCmb, res.getSts()));
+            idTxt.setText(res.getResId());
+            dtPicketr.setValue(res.getDate().toLocalDate());
         } else {
             new CustomAlert(Alert.AlertType.ERROR, "Error ", "Invalid", "Invalid Room id !").show();
         }
@@ -222,6 +237,10 @@ public class ReservationFormController {
         idCmb.setValue(null);
         rmIdCmb.setValue(null);
         stsCmb.setValue(null);
+        idTxt.clear();
+        stNameTxt.setText("");
+        rmTypeTxt.setText("");
+        kMnyTxt.setText("");
     }
 
     private void setValueFactory() {

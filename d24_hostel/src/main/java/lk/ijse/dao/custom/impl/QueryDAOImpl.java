@@ -8,6 +8,7 @@ import lk.ijse.entity.Room;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.sql.Time;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.sql.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class QueryDAOImpl implements QueryDAO {
     @Override
@@ -47,14 +49,4 @@ public class QueryDAOImpl implements QueryDAO {
         }
     }
 
-    @Override
-    public Reservation getItem(String rid) {
-//        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
-//            Transaction transaction = session.beginTransaction();
-//            List<Object[]> list = session.createNativeQuery("select r.res_id,r.res_date,r.res_status,o.room_key_money,r.room_id,r.student_type_id,o.room_type,s.student_name from room o INNER JOIN reservation r ON o.room_id=r.room_id INNER JOIN student s  ON r.student_type_id=s.student_id;").list();
-//            transaction.commit();
-//            return reservation;
-//        }
-        return null;
-    }
 }
