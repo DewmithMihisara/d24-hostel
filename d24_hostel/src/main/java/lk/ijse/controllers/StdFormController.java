@@ -257,7 +257,7 @@ public class StdFormController {
         dob = Validation.dateValidation(dobPicker);
         contact = Validation.txtValidation(contactTxt, contactLine);
         address = Validation.txtValidation(addressTxt, addressLine);
-        contact = Validation.contactNumbValidation(contactTxt, contactLine);
+        contact = Validation.cNumValidation(contactTxt, contactLine);
         if (id && name && gen && dob && contact && address) {
             return true;
         }

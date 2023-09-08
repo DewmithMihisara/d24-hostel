@@ -83,6 +83,7 @@ public class RoomFormController {
     private Button upBtn;
     private final RoomBO roomBO = BoFactory.getInstance().getBo(BoFactory.BOTypes.ROOM);
     boolean id, type, qty, keyMoney;
+
     @FXML
     void initialize() {
         initUi();
@@ -149,9 +150,9 @@ public class RoomFormController {
 
     @FXML
     void searchBtnOnCtion(ActionEvent event) {
-        String rid=searchTxt.getText();
-        RoomDTO roomDTO=roomBO.getRoom(rid);
-        if (roomDTO!=null){
+        String rid = searchTxt.getText();
+        RoomDTO roomDTO = roomBO.getRoom(rid);
+        if (roomDTO != null) {
             svBtn.setDisable(true);
             upBtn.setDisable(false);
             deleteBtn.setDisable(false);
@@ -164,45 +165,49 @@ public class RoomFormController {
             roomTypeTxt.setText(roomDTO.getType());
             qtyTxt.setText(String.valueOf(roomDTO.getQty()));
             keyMoneyTxt.setText(roomDTO.getKeyMoney());
-        }else {
-            new CustomAlert(Alert.AlertType.ERROR,"Error ","Invalid","Invalid Room id !").show();
+        } else {
+            new CustomAlert(Alert.AlertType.ERROR, "Error ", "Invalid", "Invalid Room id !").show();
         }
         searchTxt.clear();
     }
 
     @FXML
     void svBtnOnAction(ActionEvent event) {
-        validation();
-        if (roomBO.saveRoom(new RoomDTO(roomIdTxt.getText(),roomTypeTxt.getText(),Integer.parseInt(qtyTxt.getText()),keyMoneyTxt.getText()))){
-            new CustomAlert(Alert.AlertType.CONFIRMATION,"Update ","Updated !","Room Update successful !").show();
-            fillTable();
-            initUi();
-        }else {
-            new CustomAlert(Alert.AlertType.ERROR,"Update ","Not Update !","Update not successful !").show();
+        if (validation()) {
+            if (roomBO.saveRoom(new RoomDTO(roomIdTxt.getText(), roomTypeTxt.getText(), Integer.parseInt(qtyTxt.getText()), keyMoneyTxt.getText()))) {
+                new CustomAlert(Alert.AlertType.CONFIRMATION, "Update ", "Updated !", "Room Update successful !").show();
+                fillTable();
+                initUi();
+            } else {
+                new CustomAlert(Alert.AlertType.ERROR, "Update ", "Not Update !", "Update not successful !").show();
+            }
         }
     }
 
     @FXML
     void upBtnOnAction(ActionEvent event) {
-        validation();
-        if (roomBO.updateRoom(new RoomDTO(roomIdTxt.getText(),roomTypeTxt.getText(),Integer.parseInt(qtyTxt.getText()),keyMoneyTxt.getText()))){
-            new CustomAlert(Alert.AlertType.CONFIRMATION,"Update ","Updated !","Student Update successful !").show();
-            fillTable();
-            initUi();
-        }else {
-            new CustomAlert(Alert.AlertType.ERROR,"Update ","Not Update !","Update not successful !").show();
+        if (validation()) {
+            if (roomBO.updateRoom(new RoomDTO(roomIdTxt.getText(), roomTypeTxt.getText(), Integer.parseInt(qtyTxt.getText()), keyMoneyTxt.getText()))) {
+                new CustomAlert(Alert.AlertType.CONFIRMATION, "Update ", "Updated !", "Student Update successful !").show();
+                fillTable();
+                initUi();
+            } else {
+                new CustomAlert(Alert.AlertType.ERROR, "Update ", "Not Update !", "Update not successful !").show();
+            }
         }
     }
+
     @FXML
     void deleteBtnOnAction(ActionEvent event) {
-        if (roomBO.deleteRoom(roomIdTxt.getText())){
-            new CustomAlert(Alert.AlertType.CONFIRMATION,"Delete ","Deleted !","Room Deleted successful !").show();
+        if (roomBO.deleteRoom(roomIdTxt.getText())) {
+            new CustomAlert(Alert.AlertType.CONFIRMATION, "Delete ", "Deleted !", "Room Deleted successful !").show();
             fillTable();
             initUi();
-        }else {
-            new CustomAlert(Alert.AlertType.ERROR,"Delete ","Not Deleted !","Delete not successful !").show();
+        } else {
+            new CustomAlert(Alert.AlertType.ERROR, "Delete ", "Not Deleted !", "Delete not successful !").show();
         }
     }
+
     @FXML
     void addNewBtnOnAction(ActionEvent event) {
         roomTypeTxt.setDisable(false);
@@ -211,17 +216,25 @@ public class RoomFormController {
         svBtn.setDisable(false);
         setRmId();
     }
+
     private void setRmId() {
         roomIdTxt.setText(roomBO.getNextId());
     }
-    private void validation() {
-        id=false;
-        type=false;
-        qty=false;
-        keyMoney=false;
-        id= Validation.txtValidation(roomIdTxt,idLine);
-        type=Validation.txtValidation(roomTypeTxt,roomTypeLine);
-        qty=Validation.txtValidation(qtyTxt,qtyLine);
-        keyMoney=Validation.txtValidation(keyMoneyTxt,kyMoneyLine);
+
+    private boolean validation() {
+        id = false;
+        type = false;
+        qty = false;
+        keyMoney = false;
+        id = Validation.txtValidation(roomIdTxt, idLine);
+        type = Validation.txtValidation(roomTypeTxt, roomTypeLine);
+        qty = Validation.txtValidation(qtyTxt, qtyLine);
+        keyMoney = Validation.txtValidation(keyMoneyTxt, kyMoneyLine);
+        qty = Validation.numberValidation(qtyTxt, qtyLine);
+        keyMoney = Validation.moneyValidation(keyMoneyTxt, kyMoneyLine);
+        if (id && type && qty && keyMoney) {
+            return true;
+        }
+        return false;
     }
 }

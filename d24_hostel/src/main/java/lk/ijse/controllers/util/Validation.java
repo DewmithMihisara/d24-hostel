@@ -26,8 +26,26 @@ public class Validation {
         }
         return false;
     }
-    public static boolean contactNumbValidation(TextField txt, Line line) {
+    public static boolean cNumValidation(TextField txt, Line line) {
         if (txt.getText().matches("[0-9+]+")) {
+            defaultLine(line);
+            return true;
+        } else {
+            shakeLine(line);
+        }
+        return false;
+    }
+    public static boolean numberValidation(TextField txt, Line line) {
+        if (txt.getText().matches("[0-9]+")) {
+            defaultLine(line);
+            return true;
+        } else {
+            shakeLine(line);
+        }
+        return false;
+    }
+    public static boolean moneyValidation(TextField txt, Line line) {
+        if (txt.getText().matches("\\d+(\\.\\d{1,2})?")) {
             defaultLine(line);
             return true;
         } else {
@@ -76,4 +94,6 @@ public class Validation {
                         "-fx-text-fill: white"
         );
     }
+
+
 }
