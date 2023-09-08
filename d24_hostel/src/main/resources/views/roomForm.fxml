@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -23,14 +24,8 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Line fx:id="roomTypeLine" endX="120.0" layoutX="543.0" layoutY="213.0" scaleY="2.0" startX="-120.0" />
       <Line fx:id="qtyLine" endX="122.0" layoutX="906.0" layoutY="214.5" scaleY="2.0" startX="-120.0" AnchorPane.bottomAnchor="655.0" />
       <Line fx:id="kyMoneyLine" endX="120.0" layoutX="327.0" layoutY="303.0" scaleY="2.0" startX="-120.0" />
-      <TextField fx:id="roomTypeTxt" layoutX="422.0" layoutY="166.0" onAction="#roomTypeOnAction" prefHeight="25.0" prefWidth="241.0" style="-fx-background-color: tranceparent;">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </TextField>
       <TextField fx:id="qtyTxt" layoutX="786.0" layoutY="168.0" onAction="#qtyTxtOnAction" prefHeight="45.0" prefWidth="241.0" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="24.0" />
@@ -73,5 +68,6 @@
       <Button fx:id="upBtn" layoutX="819.0" layoutY="314.0" mnemonicParsing="false" onAction="#upBtnOnAction" prefHeight="29.0" prefWidth="100.0" stylesheets="@../styles/style.css" text="Update" />
       <Button fx:id="svBtn" layoutX="710.0" layoutY="314.0" mnemonicParsing="false" onAction="#svBtnOnAction" prefHeight="29.0" prefWidth="100.0" stylesheets="@../styles/style.css" text="Save" />
       <Button fx:id="addBtn1" layoutX="648.0" layoutY="314.0" mnemonicParsing="false" onAction="#addNewBtnOnAction" prefHeight="37.0" prefWidth="53.0" stylesheets="@../styles/style.css" text="+" />
+      <ComboBox fx:id="typCmb" layoutX="427.0" layoutY="190.0" onAction="#typCmbOnAction" prefHeight="26.0" prefWidth="253.0" styleClass="cmb" stylesheets="@../styles/cmbStyle.css" />
    </children>
 </AnchorPane>
