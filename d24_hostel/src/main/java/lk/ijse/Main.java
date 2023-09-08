@@ -15,7 +15,7 @@ public class Main extends Application {
         stage.setTitle("D-24");
         stage.getIcons().add(new Image("/assets/d23_logo.png"));
         stage.centerOnScreen();
-//        stage.setResizable(false);
+        stage.setResizable(false);
         stage.show();
     }
 }
