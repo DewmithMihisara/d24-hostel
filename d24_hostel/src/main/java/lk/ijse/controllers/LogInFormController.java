@@ -69,7 +69,6 @@ public class LogInFormController {
 
     @FXML
     void pwViewBtnOnAction(ActionEvent event) {
-
     }
 
     @FXML

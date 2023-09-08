@@ -67,7 +67,7 @@
             <TableColumn fx:id="stsColm" prefWidth="107.0" text="Status" />
          </columns>
       </TableView>
-      <ComboBox fx:id="stsCmb" layoutX="803.0" layoutY="266.0" prefHeight="25.0" prefWidth="222.0" />
+      <ComboBox fx:id="stsCmb" layoutX="803.0" layoutY="266.0" prefHeight="25.0" prefWidth="222.0" styleClass="cmb" stylesheets="@../styles/cmbStyle.css" />
       <Line fx:id="idLine" endX="22.0" layoutX="232.0" layoutY="212.0" scaleY="2.0" startX="-120.0" />
       <TextField fx:id="idTxt" layoutX="112.0" layoutY="165.0" prefHeight="45.0" prefWidth="143.0" style="-fx-background-color: tranceparent;">
          <font>
@@ -78,7 +78,7 @@
       <Button fx:id="upBtn" layoutX="829.0" layoutY="454.0" mnemonicParsing="false" onAction="#upBtnOnAction" prefHeight="29.0" prefWidth="100.0" stylesheets="@../styles/style.css" text="Update" />
       <Button fx:id="svBtn" layoutX="720.0" layoutY="454.0" mnemonicParsing="false" onAction="#svBtnOnAction" prefHeight="29.0" prefWidth="100.0" stylesheets="@../styles/style.css" text="Save" />
       <Button fx:id="addBtn" layoutX="658.0" layoutY="454.0" mnemonicParsing="false" onAction="#addNewBtnOnAction" prefHeight="37.0" prefWidth="53.0" stylesheets="@../styles/style.css" text="+" />
-      <ComboBox fx:id="rmIdCmb" layoutX="494.0" layoutY="266.0" onAction="#rmIdCmbOnAction" prefHeight="25.0" prefWidth="200.0" />
-      <ComboBox fx:id="idCmb" layoutX="197.0" layoutY="266.0" onAction="#idCmbOnAction" prefHeight="25.0" prefWidth="173.0" />
+      <ComboBox fx:id="rmIdCmb" layoutX="494.0" layoutY="266.0" onAction="#rmIdCmbOnAction" prefHeight="25.0" prefWidth="200.0" styleClass="cmb" stylesheets="@../styles/cmbStyle.css" />
+      <ComboBox fx:id="idCmb" layoutX="197.0" layoutY="266.0" onAction="#idCmbOnAction" prefHeight="25.0" prefWidth="173.0" styleClass="cmb" stylesheets="@../styles/cmbStyle.css" />
    </children>
 </AnchorPane>
