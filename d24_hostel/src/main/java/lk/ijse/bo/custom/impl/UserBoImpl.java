@@ -4,6 +4,7 @@ import lk.ijse.bo.custom.UserBo;
 import lk.ijse.dao.DAOFactory;
 import lk.ijse.dao.custom.UserDAO;
 import lk.ijse.dto.UserDTO;
+import lk.ijse.entity.Student;
 import lk.ijse.entity.User;
 
 public class UserBoImpl implements UserBo {
@@ -20,5 +21,13 @@ public class UserBoImpl implements UserBo {
     public boolean getUser(UserDTO userDTO) {
         User user= userDAO.getItem(userDTO.getUserName());
         return user != null;
+    }
+
+    @Override
+    public boolean uptdUsr(UserDTO userDTO) {
+        return userDAO.update(new User(
+                userDTO.getUserName(),
+                userDTO.getPassword()
+        ));
     }
 }

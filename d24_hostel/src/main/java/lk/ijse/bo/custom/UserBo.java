@@ -8,4 +8,6 @@ public interface UserBo extends SuperBo {
     boolean saveUser(UserDTO userDTO);
 
     boolean getUser(UserDTO userDTO);
+
+    boolean uptdUsr(UserDTO userDTO);
 }

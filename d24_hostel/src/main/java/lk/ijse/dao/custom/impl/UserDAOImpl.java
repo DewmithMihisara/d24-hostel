@@ -1,5 +1,6 @@
 package lk.ijse.dao.custom.impl;
 
+import javafx.scene.control.Alert;
 import lk.ijse.bo.custom.UserBo;
 import lk.ijse.configaration.SessionFactoryConfig;
 import lk.ijse.dao.custom.UserDAO;
@@ -23,7 +24,15 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean update(User dto) {
-        return false;
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.update(dto);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            return false;
+        }
     }
 
     @Override

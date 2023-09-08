@@ -45,13 +45,14 @@ public class LogInFormController {
     private Line usrNameLine;
     private final UserBo userBo = BoFactory.getInstance().getBo(BoFactory.BOTypes.USER);
     boolean pw, usr;
-
+    public static String Gl0bUsrName;
     @FXML
     void loginBtnOnAction(ActionEvent event) {
         validation();
         if (usr && pw ){
             boolean isUser=userBo.getUser(new UserDTO(userNameTxt.getText(),pwTxt.getText()));
             if (isUser){
+                Gl0bUsrName=userNameTxt.getText();
                 try {
                     Navigation.navigation(Rout.DASH_BOARD,root);
                 } catch (IOException e) {
