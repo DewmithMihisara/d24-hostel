@@ -14,6 +14,7 @@ import lk.ijse.bo.custom.ReservationBO;
 import lk.ijse.controllers.util.CustomAlert;
 import lk.ijse.controllers.util.Navigation;
 import lk.ijse.controllers.util.Rout;
+import lk.ijse.controllers.util.Validation;
 import lk.ijse.dto.ReservationDTO;
 import lk.ijse.dto.RoomDTO;
 import lk.ijse.dto.StudentDTO;
@@ -100,6 +101,7 @@ public class ReservationFormController {
     @FXML
     private Button upBtn;
     private final ReservationBO reservationBO = BoFactory.getInstance().getBo(BoFactory.BOTypes.RESERVATION);
+    boolean date, sid, rid, sts;
 
     @FXML
     void addNewBtnOnAction(ActionEvent event) {
@@ -144,9 +146,9 @@ public class ReservationFormController {
     void searchBtnOnAction(ActionEvent event) {
         String rid = searchTxt.getText();
         ReservationDTO res = null;
-        for (ReservationDTO reservationDTO:reservationBO.getAllReservation()){
-            if (reservationDTO.getResId().equals(rid)){
-                res=new ReservationDTO(
+        for (ReservationDTO reservationDTO : reservationBO.getAllReservation()) {
+            if (reservationDTO.getResId().equals(rid)) {
+                res = new ReservationDTO(
                         reservationDTO.getResId(),
                         reservationDTO.getDate(),
                         reservationDTO.getStdId(),
@@ -195,22 +197,26 @@ public class ReservationFormController {
 
     @FXML
     void svBtnOnAction(ActionEvent event) {
-        if (reservationBO.saveRes(new ReservationDTO(idTxt.getText(), Date.valueOf(dtPicketr.getValue()), idCmb.getValue(), rmIdCmb.getValue(), stsCmb.getValue(), stNameTxt.getText(), rmTypeTxt.getText(), kMnyTxt.getText()))) {
-            new CustomAlert(Alert.AlertType.CONFIRMATION, "Save ", "Saved !", "Reservation Update successful !").show();
-            fillTable();
-        } else {
-            new CustomAlert(Alert.AlertType.ERROR, "Update ", "Not Update !", "Update not successful !").show();
+        if (validation()) {
+            if (reservationBO.saveRes(new ReservationDTO(idTxt.getText(), Date.valueOf(dtPicketr.getValue()), idCmb.getValue(), rmIdCmb.getValue(), stsCmb.getValue(), stNameTxt.getText(), rmTypeTxt.getText(), kMnyTxt.getText()))) {
+                new CustomAlert(Alert.AlertType.CONFIRMATION, "Save ", "Saved !", "Reservation Update successful !").show();
+                fillTable();
+            } else {
+                new CustomAlert(Alert.AlertType.ERROR, "Update ", "Not Update !", "Update not successful !").show();
+            }
         }
     }
 
     @FXML
     void upBtnOnAction(ActionEvent event) {
-        if (reservationBO.updateRes(new ReservationDTO(idTxt.getText(), Date.valueOf(dtPicketr.getValue()), idCmb.getValue(), rmIdCmb.getValue(), stsCmb.getValue(), stNameTxt.getText(), rmTypeTxt.getText(), kMnyTxt.getText()))) {
-            new CustomAlert(Alert.AlertType.CONFIRMATION, "Update ", "Updated !", "Student Update successful !").show();
-            fillTable();
-            initUi();
-        } else {
-            new CustomAlert(Alert.AlertType.ERROR, "Update ", "Not Update !", "Update not successful !").show();
+        if (validation()) {
+            if (reservationBO.updateRes(new ReservationDTO(idTxt.getText(), Date.valueOf(dtPicketr.getValue()), idCmb.getValue(), rmIdCmb.getValue(), stsCmb.getValue(), stNameTxt.getText(), rmTypeTxt.getText(), kMnyTxt.getText()))) {
+                new CustomAlert(Alert.AlertType.CONFIRMATION, "Update ", "Updated !", "Student Update successful !").show();
+                fillTable();
+                initUi();
+            } else {
+                new CustomAlert(Alert.AlertType.ERROR, "Update ", "Not Update !", "Update not successful !").show();
+            }
         }
     }
 
@@ -295,5 +301,17 @@ public class ReservationFormController {
     private Date genarateExpDate(LocalDate date) {
         LocalDate genDate = date.plusMonths(1);
         return Date.valueOf(genDate);
+    }
+
+    private boolean validation() {
+        date = false;
+        sid = false;
+        rid = false;
+        sts = false;
+        date = Validation.dateValidation(dtPicketr);
+        sid = Validation.comboValidation(idCmb);
+        rid = Validation.comboValidation(rmIdCmb);
+        sts = Validation.comboValidation(stsCmb);
+        return date && sid && rid && sts;
     }
 }
