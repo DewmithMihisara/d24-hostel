@@ -221,6 +221,11 @@ public class ReservationFormController {
         setSts();
         initUi();
         setValueFactory();
+        setResId();
+    }
+
+    private void setResId() {
+        idTxt.setText(reservationBO.getNextId());
     }
 
     private void initUi() {

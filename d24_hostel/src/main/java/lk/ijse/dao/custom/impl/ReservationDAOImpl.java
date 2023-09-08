@@ -64,4 +64,17 @@ public class ReservationDAOImpl implements ReservationDAO {
             return reservation;
         }
     }
+
+    @Override
+    public String getNextId() {
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            String newId = "RES000";
+            Transaction transaction = session.beginTransaction();
+            List list = session.createNativeQuery("select res_id from reservation order by res_id desc limit 1").list();
+            if (!list.isEmpty()) newId = (String) list.get(0);
+            transaction.commit();
+            session.close();
+            return newId;
+        }
+    }
 }

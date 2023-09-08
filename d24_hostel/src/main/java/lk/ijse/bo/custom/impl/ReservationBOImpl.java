@@ -101,4 +101,11 @@ public class ReservationBOImpl implements ReservationBO {
         return reservationDAO.delete(text);
     }
 
+    @Override
+    public String getNextId() {
+        String id = reservationDAO.getNextId();
+        Integer newId = Integer.parseInt(id.replace("RES", "")) + 1;
+        return String.format("RES%03d", newId);
+    }
+
 }
