@@ -66,8 +66,9 @@ public class SettingsFormController {
 
     @FXML
     void checkBtnOnActon(ActionEvent event) {
+        UserDTO userDTO=userBo.getUser(new UserDTO(LogInFormController.Gl0bUsrName,oldPwTxt.getText()));
         if (!oldPwTxt.getText().equals("")){
-            if (userBo.getUser(new UserDTO(LogInFormController.Gl0bUsrName,oldPwTxt.getText()))){
+            if (userDTO.getPassword().equals(oldPwTxt.getText())){
                 reEntrPw.setDisable(false);
                 svBtn.setDisable(false);
                 newPwTxt.setDisable(false);

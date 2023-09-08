@@ -201,6 +201,7 @@ public class ReservationFormController {
             if (reservationBO.saveRes(new ReservationDTO(idTxt.getText(), Date.valueOf(dtPicketr.getValue()), idCmb.getValue(), rmIdCmb.getValue(), stsCmb.getValue(), stNameTxt.getText(), rmTypeTxt.getText(), kMnyTxt.getText()))) {
                 new CustomAlert(Alert.AlertType.CONFIRMATION, "Save ", "Saved !", "Reservation Update successful !").show();
                 fillTable();
+                initUi();
             } else {
                 new CustomAlert(Alert.AlertType.ERROR, "Update ", "Not Update !", "Update not successful !").show();
             }
