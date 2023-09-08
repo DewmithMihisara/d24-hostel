@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="1024.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controllers.RoomFormController">
+<AnchorPane prefHeight="870.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controllers.RoomFormController">
    <children>
-      <ImageView fitHeight="1024.0" fitWidth="1095.0" layoutX="338.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="870.0" fitWidth="1095.0" layoutX="338.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../assets/rooms.png" />
+            <Image url="@../assets/formBack/rooms.png" />
          </image>
       </ImageView>
       <Text fx:id="idTxt" layoutX="116.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0">
@@ -23,20 +23,20 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Line fx:id="roomTypeLine" endX="120.0" layoutX="543.0" layoutY="213.0" scaleY="2.0" startX="-120.0" AnchorPane.bottomAnchor="811.0" />
-      <Line fx:id="qtyLine" endX="122.0" layoutX="906.0" layoutY="212.0" scaleY="2.0" startX="-120.0" AnchorPane.bottomAnchor="811.0" />
-      <Line fx:id="kyMoneyLine" endX="120.0" layoutX="327.0" layoutY="300.0" scaleY="2.0" startX="-120.0" />
+      <Line fx:id="roomTypeLine" endX="120.0" layoutX="543.0" layoutY="213.0" scaleY="2.0" startX="-120.0" />
+      <Line fx:id="qtyLine" endX="122.0" layoutX="906.0" layoutY="214.5" scaleY="2.0" startX="-120.0" AnchorPane.bottomAnchor="655.0" />
+      <Line fx:id="kyMoneyLine" endX="120.0" layoutX="327.0" layoutY="303.0" scaleY="2.0" startX="-120.0" />
       <TextField fx:id="roomTypeTxt" layoutX="422.0" layoutY="166.0" onAction="#roomTypeOnAction" prefHeight="25.0" prefWidth="241.0" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="qtyTxt" layoutX="786.0" layoutY="166.0" onAction="#qtyTxtOnAction" prefHeight="45.0" prefWidth="241.0" style="-fx-background-color: tranceparent;">
+      <TextField fx:id="qtyTxt" layoutX="786.0" layoutY="168.0" onAction="#qtyTxtOnAction" prefHeight="45.0" prefWidth="241.0" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="keyMoneyTxt" layoutX="207.0" layoutY="254.0" prefHeight="45.0" prefWidth="241.0" style="-fx-background-color: tranceparent;">
+      <TextField fx:id="keyMoneyTxt" layoutX="207.0" layoutY="255.0" prefHeight="45.0" prefWidth="241.0" style="-fx-background-color: tranceparent;">
          <font>
             <Font size="24.0" />
          </font>
@@ -55,7 +55,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <TableView fx:id="rmTbl" layoutX="69.0" layoutY="380.0" prefHeight="568.0" prefWidth="959.0" stylesheets="@../styles/tblStyle.css">
+      <TableView fx:id="rmTbl" layoutX="69.0" layoutY="380.0" prefHeight="467.0" prefWidth="959.0" stylesheets="@../styles/tblStyle.css">
         <columns>
           <TableColumn fx:id="idColm" minWidth="0.0" prefWidth="191.76757049560547" text="Room ID" />
           <TableColumn fx:id="typeColm" prefWidth="325.7834167480469" text="Room Type" />
