@@ -224,7 +224,7 @@ public class ReservationFormController {
     }
 
     private void initUi() {
-//        idTxt.setDisable(true);
+        idTxt.setDisable(true);
         dtPicketr.setDisable(true);
         idCmb.setDisable(true);
         rmIdCmb.setDisable(true);
