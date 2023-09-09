@@ -15,7 +15,6 @@
   - [Managing Rooms](#managing-rooms)
 - [Cascade Types](#cascade-types)
 - [Viewing Student Details for Room Reservations](#viewing-student-details-for-room-reservations)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
