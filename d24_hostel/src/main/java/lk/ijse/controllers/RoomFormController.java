@@ -131,7 +131,7 @@ public class RoomFormController {
         searchTxt.requestFocus();
     }
     private void setType() {
-        typCmb.getItems().setAll("AC", "Non-Ac");
+        typCmb.getItems().setAll("Non-AC", "Non-AC / Food","AC","AC / Food");
     }
     @FXML
     void typCmbOnAction(ActionEvent event) {

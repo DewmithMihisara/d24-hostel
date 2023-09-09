@@ -165,8 +165,8 @@ public class ReservationFormController {
             upBtn.setDisable(false);
             deleteBtn.setDisable(false);
             stsCmb.setDisable(false);
-            idCmb.setDisable(false);
-            rmIdCmb.setDisable(false);
+//            idCmb.setDisable(false);
+//            rmIdCmb.setDisable(false);
             dtPicketr.setDisable(false);
 
             idCmb.getSelectionModel().select(getCmbIndex(idCmb, res.getStdId()));

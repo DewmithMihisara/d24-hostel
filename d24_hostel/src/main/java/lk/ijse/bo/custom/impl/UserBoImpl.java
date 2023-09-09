@@ -20,7 +20,7 @@ public class UserBoImpl implements UserBo {
     @Override
     public UserDTO getUser(UserDTO userDTO) {
         User user= userDAO.getItem(userDTO.getUserName());
-        if (user.getUsrName().equals(userDTO.getUserName())){
+        if (user!=null){
             return new UserDTO(user.getUsrName(),user.getPassword()) ;
         }
         else {

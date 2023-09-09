@@ -29,7 +29,7 @@ public class Student {
     private Date dob;
     @Column(name = "student_gender")
     private String gender;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy =  "student")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "student")
     private List<Reservation> reservations = new ArrayList<>();
 
     public Student(String sId, String name, String address, String contact, Date dob, String gen) {

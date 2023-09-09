@@ -66,6 +66,7 @@ public class LogInFormController {
                 }
             }else {
                 Validation.shakeLine(usrNameLine);
+                Validation.shakeLine(pwLine);
             }
         }
     }
