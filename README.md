@@ -17,6 +17,7 @@
 - [Viewing Student Details for Room Reservations](#viewing-student-details-for-room-reservations)
 - [Contributing](#contributing)
 - [License](#license)
+- [Contact](#contact)
 
 ## Introduction
 The D24 Hostel Student Registration and Room Management System is designed to streamline the process of registering students for hostel accommodation and managing room reservations. This system eliminates manual record-keeping, enhances data accuracy, and provides a user-friendly interface for both administrators and students.
