@@ -1,4 +1,4 @@
-# D24 Hostel Student Registration and Room Management System
+# D24 Hostel Management System
 
 ![Java](https://img.shields.io/badge/Java-17-orange) ![GitHub](https://img.shields.io/github/license/DewmithMihisara/d24-hostel)
 
